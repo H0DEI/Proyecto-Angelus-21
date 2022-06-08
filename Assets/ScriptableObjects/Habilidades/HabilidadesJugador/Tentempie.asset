@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
+  m_Name: Tentempie
+  m_EditorClassIdentifier: 
+  nombre: "Tentempi\xE9"
+  descripcion: "Melee  A 3  F +10  FP -5  D 5\nCada herida inflinge 10% de la vida
+    actual del objetivo como da\xF1o extra.\n\nExplota el cuello y vertebras del
+    objetivo con la fuerza de la mandibula desgarrando todas las arterias y carne
+    encontradas a su paso."
+  coste: 3
+  velocidad: 4
+  fuerza: 10
+  penetracion: 5
+  "da\xF1o": 5
+  acciones: 060000000600000006000000
+  personaje: {fileID: 0}
+  objetivos: []
+  tipoSeleccion: 1
+  cantidad: 1

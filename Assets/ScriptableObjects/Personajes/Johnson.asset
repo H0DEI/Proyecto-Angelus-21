@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd6cbb7ad8a1ca46b224e0e0a3bed47, type: 3}
+  m_Name: Johnson
+  m_EditorClassIdentifier: 
+  nombre: Johnson
+  nivel: 7
+  punteria: 2
+  habilidadCombate: 3
+  habilidadEspecial: 2
+  fuerza: 4
+  resistencia: 7
+  heridasMaximas: 30
+  heridasActuales: 30
+  salvacion: 2
+  salvacionInvulnerable: 6
+  accionesMaximas: 4
+  accionesActuales: 0
+  estados: []
+  habilidades:
+  - {fileID: 11400000, guid: 61a025db0c3eb3342a6824c9a541728e, type: 2}
+  - {fileID: 11400000, guid: 6f4240cc0e56bab49ad42f2f2837d611, type: 2}
+  - {fileID: 11400000, guid: 79ed26230033c9b42818ea5063add5b3, type: 2}
+  - {fileID: 11400000, guid: da48afb757dd95240814f2cde3b11590, type: 2}

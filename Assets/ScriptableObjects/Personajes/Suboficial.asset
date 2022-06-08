@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd6cbb7ad8a1ca46b224e0e0a3bed47, type: 3}
+  m_Name: Suboficial
+  m_EditorClassIdentifier: 
+  nombre: Suboficial
+  nivel: 3
+  punteria: 4
+  habilidadCombate: 3
+  habilidadEspecial: 0
+  fuerza: 4
+  resistencia: 3
+  heridasMaximas: 14
+  heridasActuales: 14
+  salvacion: 4
+  accionesMaximas: 2
+  accionesActuales: 0
+  estados: []
+  habilidades:
+  - {fileID: 11400000, guid: 4eaf922d7ab61b0489fb7d0add0a6fea, type: 2}
+  - {fileID: 11400000, guid: 92415e53ad978f649bd58392c5be2592, type: 2}

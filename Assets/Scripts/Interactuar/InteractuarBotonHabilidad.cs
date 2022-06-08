@@ -1,0 +1,169 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using TMPro;
+using cakeslice;
+
+public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
+{
+    public int cantidad;
+
+    private bool puedePresionarse;
+
+    private TextMeshProUGUI texto;
+    private TextMeshProUGUI muestraNombre;
+    private TextMeshProUGUI muestraDescripcion;
+    private TextMeshProUGUI muestraTextoVelocidad;
+    private TextMeshProUGUI muestraValorVelocidad;
+    private TextMeshProUGUI muestraTextoCosteAccion;
+    private TextMeshProUGUI muestraValorCosteAccion;
+
+    private Habilidad habilidad;
+
+    private Color colorDefault;
+
+    private Personaje jugador;
+
+    private GameManager instancia;
+
+    private void Start()
+    {
+        puedePresionarse = true;
+
+        jugador = GameManager.instancia.jugador;
+        instancia = GameManager.instancia;
+
+        texto = GetComponent<TextMeshProUGUI>();
+
+        colorDefault = texto.color;
+
+        habilidad = instancia.BuscaHabilidadInstanciada(this.texto.text);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        texto.fontStyle = FontStyles.Bold;
+
+        instancia.informacionDescripciones.MuestraInformacionHabilidad(habilidad);
+
+        if (!instancia.habilidadSeleccionada) instancia.MuestraObjetivosSeleccionables(habilidad, true);
+    }
+    
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        texto.fontStyle = FontStyles.Normal;
+
+        instancia.informacionDescripciones.LimpiaInformacion();
+
+        if(!instancia.habilidadSeleccionada) instancia.ResetearObjetivosSeleccionables();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        PulsaHabilidad();
+    }
+
+    public void PulsaHabilidad()
+    {
+        if (puedePresionarse && habilidad.coste <= jugador.accionesActuales)
+        {
+            instancia.habilidadSeleccionada = true;
+
+            ObjetivosSeleccionables();
+        }
+    }
+
+    public void ObjetivoSeleccionado(Personaje personaje)
+    {
+        cantidad--;
+        
+        habilidad.objetivos.Add(personaje);
+
+        if (cantidad == 0) FinalizaSeleccion();
+    }
+
+    public void Desactivar()
+    {
+        texto.color = Color.gray;
+
+        puedePresionarse = false;
+    }
+
+    public void Activar()
+    {
+        texto.color = colorDefault;
+
+        puedePresionarse = true;
+    }
+
+    private void ObjetivosSeleccionables()
+    {
+        instancia.interactuarBotonHabilidad = this;
+
+        instancia.DesactivaBotonesInterfaz();
+
+        habilidad.objetivos.Clear();
+
+        switch (habilidad.tipoSeleccion)
+        {
+            case TipoSeleccion.SoloJugador:
+            case TipoSeleccion.SoloUnEnemigo:
+            case TipoSeleccion.CualquierPersonaje:
+
+                cantidad = habilidad.cantidad;
+
+                instancia.MuestraObjetivosSeleccionables(habilidad, true);
+
+                break;
+
+            case TipoSeleccion.VariosEnemigos:
+
+                instancia.mostrarIndicador = true;
+
+                cantidad = habilidad.cantidad;
+
+                instancia.MuestraObjetivosSeleccionables(habilidad, true);
+
+                break;
+
+            case TipoSeleccion.TodosLosEnemigos:
+
+                instancia.SeleccionaTodosLosPersonajes(habilidad, true);
+
+                FinalizaSeleccion();
+
+                break;
+            
+            case TipoSeleccion.SinSeleccionar:
+
+                instancia.SeleccionaTodosLosPersonajes(habilidad, false);
+
+                FinalizaSeleccion();
+
+                break;
+        }
+    }
+
+    private void FinalizaSeleccion()
+    {
+        instancia.habilidadSeleccionada = false;
+
+        instancia.mostrarIndicador = false;
+
+        jugador.accionesActuales -= habilidad.coste;
+
+        habilidad.personaje = jugador;
+        
+        instancia.habilidadesALanzar.listaHabilidadesALanzar.Add(new KeyValuePair<Habilidad, bool>(Instantiate(habilidad), true));
+        
+        instancia.ActivaBotonesInterfaz();
+
+        instancia.ActualizarListaHabilidades();
+
+        instancia.ResetearObjetivosSeleccionables();
+
+        GameManager.instancia.informacionInterfaz.ActualizaPuntos();
+    }
+}
