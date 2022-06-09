@@ -10,15 +10,11 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
 {
     public int cantidad;
 
+    public int numUsos;
+
     private bool puedePresionarse;
 
     private TextMeshProUGUI texto;
-    private TextMeshProUGUI muestraNombre;
-    private TextMeshProUGUI muestraDescripcion;
-    private TextMeshProUGUI muestraTextoVelocidad;
-    private TextMeshProUGUI muestraValorVelocidad;
-    private TextMeshProUGUI muestraTextoCosteAccion;
-    private TextMeshProUGUI muestraValorCosteAccion;
 
     private Habilidad habilidad;
 
@@ -32,14 +28,22 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
     {
         puedePresionarse = true;
 
-        jugador = GameManager.instancia.jugador;
         instancia = GameManager.instancia;
+
+        jugador = instancia.jugador;
 
         texto = GetComponent<TextMeshProUGUI>();
 
         colorDefault = texto.color;
 
+        ResetearHabilidad();
+    }
+
+    public void ResetearHabilidad()
+    {
         habilidad = instancia.BuscaHabilidadInstanciada(this.texto.text);
+
+        numUsos = habilidad.numeroDeUsos;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -62,7 +66,13 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        PulsaHabilidad();
+        if (numUsos > 0)
+        {
+            if (numUsos != 727) numUsos--;
+
+            PulsaHabilidad();
+        }
+
     }
 
     public void PulsaHabilidad()
@@ -72,6 +82,8 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
             instancia.habilidadSeleccionada = true;
 
             ObjetivosSeleccionables();
+
+           
         }
     }
 

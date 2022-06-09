@@ -353,6 +353,17 @@ public class GameManager : MonoBehaviour
         jugador.fuerza = tempJugador.fuerza;
         jugador.resistencia = tempJugador.resistencia;
         jugador.salvacion = tempJugador.salvacion;
+        jugador.accionesActuales = tempJugador.accionesActuales;
+        jugador.accionesMaximas = tempJugador.accionesMaximas;
+
+        GameObject panelHabilidades = listaBotonesInterfaz.ElementAt(0);
+
+        foreach(InteractuarBotonHabilidad scr in panelHabilidades.GetComponentsInChildren<InteractuarBotonHabilidad>())
+        {
+
+            //probar con jugador temporal
+            scr.ResetearHabilidad();
+        }
     }
 
     public void Reiniciar()

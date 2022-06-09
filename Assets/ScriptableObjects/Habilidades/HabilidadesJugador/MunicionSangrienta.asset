@@ -31,3 +31,5 @@ MonoBehaviour:
   objetivos: []
   tipoSeleccion: 3
   cantidad: 1
+  usosLimitados: 0
+  numeroDeUsos: 727

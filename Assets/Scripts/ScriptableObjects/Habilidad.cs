@@ -28,9 +28,13 @@ public class Habilidad : ScriptableObject, IComparable
 
     public int cantidad = 2;
 
+    public bool usosLimitados;
+
+    public int numeroDeUsos;
+
     public void Usar()
     {
-            foreach (Accion accion in acciones)
+                    foreach (Accion accion in acciones)
             {
                 switch (accion)
                 {
@@ -173,6 +177,7 @@ public class Habilidad : ScriptableObject, IComparable
                     break;
                 }
             }
+        
     }
 
     public int CompareTo(object obj)
