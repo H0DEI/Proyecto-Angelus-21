@@ -20,6 +20,8 @@ public class Personaje : ScriptableObject
     public int accionesMaximas;
     public int accionesActuales;
 
+    public GameObject gameObject;
+
     public List<Estados> estados = new List<Estados>();
 
     public List<Habilidad> habilidades = new List<Habilidad>();

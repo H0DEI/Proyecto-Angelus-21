@@ -4,14 +4,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 
+[RequireComponent(typeof(Animator))]
 public class InteractuarPersonajes : MonoBehaviour
 {
     public bool elegible;
     public bool vivo;
 
     public Personaje personaje;
-
-    private RectTransform rectTransform;
 
     private SpriteRenderer spriteRenderer;
 
@@ -30,7 +29,7 @@ public class InteractuarPersonajes : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        rectTransform = GetComponent<RectTransform>();
+        personaje.gameObject = transform.gameObject;
     }
 
     private void OnMouseEnter()

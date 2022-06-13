@@ -189,7 +189,19 @@ public class Habilidad : ScriptableObject, IComparable
 
     private void RealizaTiradas(int punteria, int fuerza, Personaje objetivo, int daño)
     {
-        if (HitRoll(punteria)) if (WoundRoll(fuerza, objetivo)) if (!SavingThrow(objetivo)) objetivo.heridasActuales -= daño;        
+        if (HitRoll(punteria))
+        {
+            if (WoundRoll(fuerza, objetivo)) if (!SavingThrow(objetivo))
+                {
+                    objetivo.heridasActuales -= daño;
+
+                    Anima(objetivo, "Dañado");
+                }
+        }
+        else
+        {
+            Anima(objetivo, "Miss");
+        }
     }
 
     private bool HitRoll(int punteria)
@@ -259,6 +271,13 @@ public class Habilidad : ScriptableObject, IComparable
             objetivo.heridasActuales += personaje.habilidadEspecial + Roll();
 
             if (objetivo.heridasActuales > objetivo.heridasMaximas) objetivo.heridasActuales = objetivo.heridasMaximas;
+
+            Anima(objetivo, "Curar");
         }
+    }
+
+    private void Anima(Personaje objetivo, String animacion)
+    {
+        objetivo.gameObject.GetComponent<Animator>().SetTrigger(animacion);
     }
 }

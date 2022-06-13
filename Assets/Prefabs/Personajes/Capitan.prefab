@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 2371746030208798240}
   - component: {fileID: 2371746030208798243}
   - component: {fileID: 2371746030208798242}
+  - component: {fileID: 4090529209512356488}
   m_Layer: 0
   m_Name: Capitan
   m_TagString: Untagged
@@ -343,6 +344,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   eraseRenderer: 0
+--- !u!95 &4090529209512356488
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2371746030208798255}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 53938340f2f2cce488a965dfbc9f709d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2371746030895361198
 GameObject:
   m_ObjectHideFlags: 0

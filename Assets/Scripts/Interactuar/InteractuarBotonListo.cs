@@ -77,6 +77,8 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
                     instancia.btnHasMuerto.SetActive(true);
                 }
 
+                personajeEnEscena.GetComponent<Animator>().SetTrigger("Muerto");
+
                 personajeEnEscena.SetActive(false);
 
                 instancia.listaObjetosPersonajesEscena.Remove(personajeEnEscena);
