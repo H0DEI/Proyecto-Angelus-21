@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "Nueva Habilidad")]
@@ -191,16 +192,29 @@ public class Habilidad : ScriptableObject, IComparable
     {
         if (HitRoll(punteria))
         {
-            if (WoundRoll(fuerza, objetivo)) if (!SavingThrow(objetivo))
+            if (WoundRoll(fuerza, objetivo))
+            {
+                if (!SavingThrow(objetivo))
                 {
                     objetivo.heridasActuales -= daño;
 
                     Anima(objetivo, "Dañado");
+
+                    AnimaTexto(objetivo, daño.ToString());
                 }
+                else
+                {
+                    AnimaTexto(objetivo, "Saved");
+                }
+            }
+            else
+            {
+                AnimaTexto(objetivo, "Resisted");
+            }
         }
         else
         {
-            Anima(objetivo, "Miss");
+            AnimaTexto(objetivo, "Miss");
         }
     }
 
@@ -274,6 +288,13 @@ public class Habilidad : ScriptableObject, IComparable
 
             Anima(objetivo, "Curar");
         }
+    }
+
+    private void AnimaTexto(Personaje objetivo, String text)
+    {
+        objetivo.gameObject.transform.Find("Canvas").transform.Find("text").GetComponent<TextMeshPro>().text = text;
+
+        objetivo.gameObject.GetComponent<Animator>().SetTrigger("Text");
     }
 
     private void Anima(Personaje objetivo, String animacion)
