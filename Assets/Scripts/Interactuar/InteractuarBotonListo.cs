@@ -87,6 +87,14 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
             instancia.listaObjetosPersonajesEscena[0].GetComponent<InteractuarPersonajes>().personaje == instancia.jugador)
         {
             instancia.EscenaCompletada();
+
+            instancia.jugador.experienciaActual += instancia.XP.xp;
+
+            //Hacer bucle
+            if(instancia.jugador.experienciaActual >= instancia.jugador.requisitoNivel)
+            {
+                instancia.XP.ComprovarNivel();
+            }
         }
 
         instancia.habilidadesALanzar.listaHabilidadesALanzar.Clear();

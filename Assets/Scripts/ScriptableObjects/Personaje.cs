@@ -19,6 +19,8 @@ public class Personaje : ScriptableObject
     public int salvacionInvulnerable;
     public int accionesMaximas;
     public int accionesActuales;
+    public int experienciaActual;
+    public int requisitoNivel;
 
     public GameObject gameObject;
 

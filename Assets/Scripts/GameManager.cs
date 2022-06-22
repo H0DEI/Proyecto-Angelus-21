@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     public HabilidadesALanzar habilidadesALanzar;
 
+    public XP XP;
+
     public CargaInterfazHabilidades cargaInterfazHabilidades;
 
     public InteractuarBotonHabilidad interactuarBotonHabilidad;
@@ -205,6 +207,8 @@ public class GameManager : MonoBehaviour
 
         DesactivaBotonesInterfaz();
 
+
+
         //!!!!!!!!!!!!!aqui poner xp
         //!!!!!!!!!!!!!aqui poner xp
         //!!!!!!!!!!!!!aqui poner xp
@@ -274,6 +278,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public List<GameObject> ToListEnemigos()
+    {
+        List<GameObject> listaEnemigos = listaObjetosPersonajesEscena.ToList();
+
+        listaEnemigos.RemoveAt(0);
+
+        return listaEnemigos;
+    }
+
     public void CargaJugador()
     {
         jugador = Instantiate(jugador);
@@ -291,11 +304,9 @@ public class GameManager : MonoBehaviour
     {
         List<Personaje> objetivosDisponibles = new List<Personaje>();
 
-        List<GameObject> listaEnemigos = listaObjetosPersonajesEscena.ToList();
+        List<GameObject> listaEnemigos = ToListEnemigos();
 
         List<Habilidad> lHabilidades = new List<Habilidad>();
-
-        listaEnemigos.RemoveAt(0);
 
         Habilidad habilidad;
 

@@ -35,7 +35,7 @@ public class CargaEscena : MonoBehaviour
 
         Destroy(posicionJugador.gameObject);
 
-        //Corregir esta limpieza, no me gusta
+        //Corregir esta limpieza, no me gusta +1
         instancia.listaObjetosPersonajesEscena.Clear();
 
         for (int i = 0; i < puertas.transform.childCount; i++)
@@ -57,6 +57,8 @@ public class CargaEscena : MonoBehaviour
             instancia.CargaTurno();
 
             instancia.ActivaBotonesInterfaz();
+
+            instancia.XP.ExperienciaEscena();
         }
         else
         {

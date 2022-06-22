@@ -5,6 +5,8 @@ using System;
 
 public class XP : MonoBehaviour
 {
+    public int xp;
+
     public List<Habilidad> TierB; //35
     public List<Habilidad> TierA; //25
     public List<Habilidad> TierS; //5
@@ -15,11 +17,43 @@ public class XP : MonoBehaviour
     public GameObject InterfazJugable;
     public GameObject LevelUp;
 
+    private GameManager instancia;
+
+    private Personaje jugador;
+
     private List<Habilidad> Temp;
 
     private Habilidad habilidad;
 
     private static readonly System.Random random = new System.Random();
+
+    private void Start()
+    {
+        instancia = GameManager.instancia;
+
+        instancia.XP = this;
+
+        jugador = instancia.jugador;
+    }
+
+    public void ExperienciaEscena()
+    {
+        xp = instancia.escenaActual.xp;
+
+        foreach(GameObject enemigo in instancia.ToListEnemigos())
+        {
+            xp += enemigo.GetComponent<InteractuarPersonajes>().personaje.nivel;
+        }
+    }
+    public void ComprovarNivel()
+    {
+        jugador.experienciaActual -= jugador.requisitoNivel;
+
+        jugador.requisitoNivel += 2;
+
+        SubidaNivel();
+    }
+
 
     public void SubidaNivel()
     {
