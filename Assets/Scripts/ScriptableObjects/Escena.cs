@@ -8,6 +8,8 @@ public class Escena : ScriptableObject
 {
     public string idEscena;
 
+    public int xp;
+
     public bool completada;
 
     public List<Personaje> personajes = new List<Personaje>();

@@ -9,14 +9,14 @@ using cakeslice;
 public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
 {
     public int cantidad;
-
     public int numUsos;
 
+    public Habilidad habilidad;
+
     private bool puedePresionarse;
+    private bool puedeCambiarse;
 
     private TextMeshProUGUI texto;
-
-    private Habilidad habilidad;
 
     private Color colorDefault;
 
@@ -66,13 +66,18 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (numUsos > 0)
+        if (puedeCambiarse)
+        {
+            habilidad = instancia.habilidadLevelUp;
+
+            instancia.cargaInterfazHabilidades.ReseteaTextoHabilidades();
+        }
+        else if (numUsos > 0)
         {
             if (numUsos != 727) numUsos--;
 
             PulsaHabilidad();
         }
-
     }
 
     public void PulsaHabilidad()
@@ -82,8 +87,6 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
             instancia.habilidadSeleccionada = true;
 
             ObjetivosSeleccionables();
-
-           
         }
     }
 

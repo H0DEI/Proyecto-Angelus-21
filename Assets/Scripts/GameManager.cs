@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     public HabilidadesALanzar habilidadesALanzar;
 
+    public CargaInterfazHabilidades cargaInterfazHabilidades;
+
     public InteractuarBotonHabilidad interactuarBotonHabilidad;
 
     public List<GameObject> listaBotonesInterfaz = new List<GameObject>();
@@ -50,6 +52,8 @@ public class GameManager : MonoBehaviour
     public GameObject btnHasMuerto;
 
     public GameObject panelAyuda;
+
+    public Habilidad habilidadLevelUp;
 
     //Escena 1 carga fea, corregir
     public Escena escena1;
@@ -125,24 +129,41 @@ public class GameManager : MonoBehaviour
         habilidadesALanzar.ActualizaLista();
     }
 
+    public void ActivaBotonesInterfaz()
+    {       
+        foreach (GameObject boton in listaBotonesInterfaz)
+        {
+            IBoton[] scripts = boton.GetComponentsInChildren<IBoton>();
+       
+            foreach (IBoton script in scripts) script.Activar();
+        }
+    }
+
+    public void ActivaBotonesInterfaz(int indice)
+    {
+            IBoton[] scripts = listaBotonesInterfaz[indice].GetComponentsInChildren<IBoton>();
+
+            foreach (IBoton script in scripts) script.Activar();
+    }
+
     public void DesactivaBotonesInterfaz()
     {
         foreach (GameObject boton in listaBotonesInterfaz)
         {
-            IBoton[] scripts = boton.GetComponentsInChildren<IBoton>();
+        IBoton[] scripts = boton.GetComponentsInChildren<IBoton>();
             
-            foreach(IBoton script in scripts) script.Desactivar();
+        foreach(IBoton script in scripts) script.Desactivar();
         }
     }
 
-    public void ActivaBotonesInterfaz()
+    public void ActivaPersonajes()
     {
-        foreach (GameObject boton in listaBotonesInterfaz)
-        {
-            IBoton[] scripts = boton.GetComponentsInChildren<IBoton>();
+        foreach (GameObject personaje in listaObjetosPersonajesEscena) personaje.GetComponentInChildren<InteractuarPersonajes>().Activar();
+    }
 
-            foreach (IBoton script in scripts) script.Activar();
-        }
+    public void DesactivaPersonajes()
+    {
+        foreach (GameObject personaje in listaObjetosPersonajesEscena) personaje.GetComponentInChildren<InteractuarPersonajes>().Desactivar();
     }
 
     public void CargaPersonajesEscena()
@@ -183,6 +204,12 @@ public class GameManager : MonoBehaviour
         ResetearAttributosJugador();
 
         DesactivaBotonesInterfaz();
+
+        //!!!!!!!!!!!!!aqui poner xp
+        //!!!!!!!!!!!!!aqui poner xp
+        //!!!!!!!!!!!!!aqui poner xp
+        //!!!!!!!!!!!!!aqui poner xp
+        //!!!!!!!!!!!!!aqui poner xp
     }
 
     public void MuestraObjetivosSeleccionables(Habilidad habilidad, bool soyJugador)
@@ -377,8 +404,6 @@ public class GameManager : MonoBehaviour
         jugador.heridasActuales = jugador.heridasMaximas;
 
         CompruebaYCargaEscenas(escena1);
-
-        objetoJugador.GetComponentInChildren<BarraDeVida>().ActualizaBarraDeVida();
 
         ActivaBotonesInterfaz();
     }

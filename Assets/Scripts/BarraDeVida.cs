@@ -19,8 +19,8 @@ public class BarraDeVida : MonoBehaviour
         rt.sizeDelta = new Vector2(barraAncho, 0.1755f);
     }
 
-    public void ActualizaBarraDeVida()
+    private void Update()
     {
-        bar.fillAmount = (float)personaje.heridasActuales / personaje.heridasMaximas;
+        bar.fillAmount = Mathf.Lerp(bar.fillAmount, (float)personaje.heridasActuales / personaje.heridasMaximas, Time.deltaTime * 2);
     }
 }

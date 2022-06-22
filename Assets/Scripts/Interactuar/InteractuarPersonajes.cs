@@ -9,6 +9,7 @@ public class InteractuarPersonajes : MonoBehaviour
 {
     public bool elegible;
     public bool vivo;
+    public bool puedePresionarse;
 
     public Personaje personaje;
 
@@ -30,6 +31,8 @@ public class InteractuarPersonajes : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         personaje.gameObject = transform.gameObject;
+
+        puedePresionarse = true;
     }
 
     private void OnMouseEnter()
@@ -59,6 +62,16 @@ public class InteractuarPersonajes : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (elegible && vivo) instancia.interactuarBotonHabilidad.ObjetivoSeleccionado(personaje);
+        if (elegible && vivo && puedePresionarse) instancia.interactuarBotonHabilidad.ObjetivoSeleccionado(personaje);
+    }
+
+    public void Desactivar()
+    {
+        puedePresionarse = false;
+    }
+
+    public void Activar()
+    {
+        puedePresionarse = true;
     }
 }

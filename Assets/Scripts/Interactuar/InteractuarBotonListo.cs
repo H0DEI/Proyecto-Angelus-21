@@ -61,8 +61,6 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
             for (int i = 0; i < instancia.listaObjetosPersonajesEscena.Count; i++)
             {
                 GameObject personajeEnEscena = instancia.listaObjetosPersonajesEscena[i];
-
-                personajeEnEscena.GetComponentInChildren<BarraDeVida>().ActualizaBarraDeVida();
             }
         }
 

@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 9865f80b3a0a66749be4577194e8c5dc
+guid: 89d90ffb8863ec34b9a5b7cdb96a3e0c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - personaje: {instanceID: 0}
+  - InterfazJugable: {fileID: 100002, guid: 14999a6ec1f3a1a48bc94671b07d91f3, type: 3}
+  - LevelUp: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

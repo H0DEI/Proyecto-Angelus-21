@@ -21,7 +21,7 @@ public class InformacionDescripciones : MonoBehaviour
     public void MuestraInformacionHabilidad(Habilidad habilidad)
     {
         muestraNombre.text = habilidad.nombre;
-        muestraDescripcion.text = string.Format(habilidad.descripcion, habilidad.daño);
+        muestraDescripcion.text = string.Format(habilidad.descripcion, habilidad.daÃ±o);
         muestraTextoVelocidad.text = "V:";
         muestraValorVelocidad.text = habilidad.velocidad.ToString();
         muestraTextoCosteAccion.text = "PA:";

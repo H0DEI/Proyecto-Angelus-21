@@ -50,7 +50,7 @@ public class UniPlayerCamDemo : MonoBehaviour{
 
     CharacterController controller;
           
-    float camFlySpeed = .2f;
+    //float camFlySpeed = .2f;
 
 
     private bool camOrbit;
@@ -253,7 +253,7 @@ public class UniPlayerCamDemo : MonoBehaviour{
     
    void moveController()
     {
-        float grav=0; 
+        //float grav=0; 
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= currentSpeed;
@@ -261,7 +261,7 @@ public class UniPlayerCamDemo : MonoBehaviour{
         if (Input.GetKey(obj_Up))
         {
             moveDirection.y = jumpSpeed;
-            grav = 0;
+            //grav = 0;
 
         }
         if(Input.GetKey(obj_Down))

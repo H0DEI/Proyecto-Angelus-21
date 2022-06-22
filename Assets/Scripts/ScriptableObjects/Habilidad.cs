@@ -35,150 +35,153 @@ public class Habilidad : ScriptableObject, IComparable
 
     public void Usar()
     {
-                    foreach (Accion accion in acciones)
+        foreach (Accion accion in acciones) 
+        {
+            switch (accion) 
             {
-                switch (accion)
-                {
-                    case Accion.Disparo:
+                case Accion.Disparo:
 
-                        foreach (Personaje objetivo in objetivos)
-                        {
-                            RealizaTiradas(personaje.punteria, fuerza, objetivo, daño);
-                        }
+                    foreach (Personaje objetivo in objetivos)
+                    {
+                        RealizaTiradas(personaje.punteria, fuerza, objetivo, daño);
+                    }
 
-                        break;
+                    break;
 
-                    case Accion.GolpeMasFuerza:
+                case Accion.GolpeMasFuerza:
 
-                        foreach (Personaje objetivo in objetivos)
-                        {
-                            RealizaTiradas(personaje.habilidadCombate, personaje.fuerza + fuerza, objetivo, daño);
-                        }
+                    foreach (Personaje objetivo in objetivos)
+                    {
+                        RealizaTiradas(personaje.habilidadCombate, personaje.fuerza + fuerza, objetivo, daño);
+                    }
 
-                        break;
+                    break;
 
-                    case Accion.Golpe:
+                case Accion.Golpe:
 
-                        foreach (Personaje objetivo in objetivos)
-                        {
-                            RealizaTiradas(personaje.habilidadCombate, personaje.fuerza, objetivo, daño);
-                        }
+                    foreach (Personaje objetivo in objetivos)
+                    {
+                        RealizaTiradas(personaje.habilidadCombate, personaje.fuerza, objetivo, daño);
+                    }
 
-                        break;
+                    break;
 
-                    case Accion.DisparoPierdeSaludRestante:
+                case Accion.DisparoPierdeSaludRestante:
 
-                        foreach (Personaje objetivo in objetivos)
-                        {
-                            RealizaTiradas(personaje.punteria, fuerza, objetivo, daño);
-                        }
+                    foreach (Personaje objetivo in objetivos)
+                    {
+                        RealizaTiradas(personaje.punteria, fuerza, objetivo, daño);
+                    }
 
-                        personaje.heridasActuales -= personaje.heridasActuales / 8;
+                    personaje.heridasActuales -= personaje.heridasActuales / 8;
 
-                        break;
+                    break;
 
-                    case Accion.DisparoDañoPorcentualVidaActual:
+                case Accion.DisparoDañoPorcentualVidaActual:
 
-                        foreach (Personaje objetivo in objetivos)
-                        {
-                            RealizaTiradas(personaje.punteria, fuerza, objetivo, objetivo.heridasActuales * 15 / 100);
-                        }
+                    foreach (Personaje objetivo in objetivos)
+                    {
+                        RealizaTiradas(personaje.punteria, fuerza, objetivo, objetivo.heridasActuales * 15 / 100);
+                    }
 
-                        break;
+                    break;
 
-                    case Accion.MejoraFuerzaYAccionesMaximas:
+                case Accion.MejoraFuerzaYAccionesMaximas:
 
-                        personaje.fuerza += fuerza;
+                    personaje.fuerza += fuerza;
 
-                        personaje.accionesMaximas += 1;
+                    personaje.accionesMaximas += 1;
 
-                        break;
+                    Anima(personaje, "Mejora");
+
+                    break;
 
                 case Accion.ReduccionResistencia:
 
-                    personaje.resistencia -= 1;
+                personaje.resistencia -= 1;
+
+                Anima(personaje, "Desmejora");
 
                     break;
 
                 case Accion.GolpeUnObjetivoMasFuerzaMasDañoPorcentual:
 
-                        foreach (Personaje objetivo in objetivos)
-                        {
-                            RealizaTiradas(personaje.habilidadCombate, personaje.fuerza + fuerza, objetivo, daño + objetivo.heridasActuales * 10 / 100);
-                        }
-
-                        break;
-
-                    case Accion.GolpeYSiMataCuracion:
-
-                        foreach (Personaje objetivo in objetivos)
-                        {
-                            RealizaTiradas(personaje.habilidadCombate, personaje.fuerza + fuerza, objetivo, daño);
-
-                            if (objetivo.heridasActuales <= 0) Curar(personaje);
-                        }
-
-                        break;
-
-                    case Accion.Curar:
-
-                        foreach (Personaje objetivo in objetivos) Curar(objetivo);
-
-                        break;
-
-                    case Accion.CurarUnoMismo:
-
-                        Curar(personaje);
-
-                        break;
-
-                    case Accion.DisparoDañoMasDañoAleatorio:
-
-                        foreach (Personaje objetivo in objetivos)
-                        {
-                            RealizaTiradas(personaje.punteria, fuerza, objetivo, daño + Roll());
-                        }
-
-                        break;
-
-                    case Accion.MejoraPunteria:
-
-                        foreach (Personaje objetivo in objetivos)
-                        {
-                            objetivo.punteria -= personaje.habilidadEspecial / 2;
-                        }
-
-                        break;
-
-                    case Accion.Disparo1d6:
-
-                        foreach (Personaje objetivo in objetivos)
-                        {
-                            for (int i = 0; i < Roll(); i++) RealizaTiradas(personaje.punteria, fuerza, objetivo, daño);
-                        }
-
-                        break;
-
-                    case Accion.Disparo1d3DañoMas1d3:
-
-                        foreach (Personaje objetivo in objetivos)
-                        {
-                            for (int i = 0; i < Roll(1, 3); i++) RealizaTiradas(personaje.punteria, fuerza, objetivo, daño + Roll(1, 3));
-                        }
-
-                        break;
-
-                case Accion.DisparoDañoMitadVidaActualObjetivo:
-
                     foreach (Personaje objetivo in objetivos)
                     {
-                        RealizaTiradas(personaje.punteria, fuerza, objetivo, objetivo.heridasActuales/2);
+                        RealizaTiradas(personaje.habilidadCombate, personaje.fuerza + fuerza, objetivo, daño + objetivo.heridasActuales * 10 / 100);
                     }
 
                     break;
+
+                case Accion.GolpeYSiMataCuracion:
+
+                    foreach (Personaje objetivo in objetivos)
+                    {
+                        RealizaTiradas(personaje.habilidadCombate, personaje.fuerza + fuerza, objetivo, daño);
+
+                        if (objetivo.heridasActuales <= 0) Curar(personaje);
+                    }
+
+                    break;
+
+                case Accion.Curar:
+
+                    foreach (Personaje objetivo in objetivos) Curar(objetivo);
+
+                    break;
+
+                case Accion.CurarUnoMismo:
+
+                    Curar(personaje);
+
+                    break;
+
+                case Accion.DisparoDañoMasDañoAleatorio:
+
+                    foreach (Personaje objetivo in objetivos)
+                    {
+                        RealizaTiradas(personaje.punteria, fuerza, objetivo, daño + Roll());
+                    }
+
+                    break;
+
+                case Accion.MejoraPunteria:
+
+                    foreach (Personaje objetivo in objetivos)
+                    {
+                        objetivo.punteria -= personaje.habilidadEspecial / 2;
+                    }
+
+                    break;
+
+                case Accion.Disparo1d6:
+
+                    foreach (Personaje objetivo in objetivos)
+                    {
+                        for (int i = 0; i < Roll(); i++) RealizaTiradas(personaje.punteria, fuerza, objetivo, daño);
+                    }
+
+                    break;
+
+                case Accion.Disparo1d3DañoMas1d3:
+
+                    foreach (Personaje objetivo in objetivos)
+                    {
+                        for (int i = 0; i < Roll(1, 3); i++) RealizaTiradas(personaje.punteria, fuerza, objetivo, daño + Roll(1, 3));
+                    }
+
+                    break;
+
+                case Accion.DisparoDañoMitadVidaActualObjetivo:
+
+                foreach (Personaje objetivo in objetivos)
+                {
+                    RealizaTiradas(personaje.punteria, fuerza, objetivo, objetivo.heridasActuales/2);
                 }
+
+                    break;
             }
-        
+        }
     }
 
     public int CompareTo(object obj)
@@ -198,23 +201,21 @@ public class Habilidad : ScriptableObject, IComparable
                 {
                     objetivo.heridasActuales -= daño;
 
-                    Anima(objetivo, "Dañado");
-
-                    AnimaTexto(objetivo, daño.ToString());
+                    AnimaWounded(objetivo, daño.ToString());
                 }
                 else
                 {
-                    AnimaTexto(objetivo, "Saved");
+                    Anima(objetivo, "Saved");
                 }
             }
             else
             {
-                AnimaTexto(objetivo, "Resisted");
+                Anima(objetivo, "Resisted");
             }
         }
         else
         {
-            AnimaTexto(objetivo, "Miss");
+            Anima(objetivo, "Miss");
         }
     }
 
@@ -290,15 +291,15 @@ public class Habilidad : ScriptableObject, IComparable
         }
     }
 
-    private void AnimaTexto(Personaje objetivo, String text)
-    {
-        objetivo.gameObject.transform.Find("Canvas").transform.Find("text").GetComponent<TextMeshPro>().text = text;
-
-        objetivo.gameObject.GetComponent<Animator>().SetTrigger("Text");
-    }
-
     private void Anima(Personaje objetivo, String animacion)
     {
         objetivo.gameObject.GetComponent<Animator>().SetTrigger(animacion);
+    }
+
+    private void AnimaWounded(Personaje objetivo, String text)
+    {
+        objetivo.gameObject.transform.Find("Canvas").transform.Find("wounded").GetComponent<TextMeshProUGUI>().text = text;
+
+        objetivo.gameObject.GetComponent<Animator>().SetTrigger("Wounded");
     }
 }
