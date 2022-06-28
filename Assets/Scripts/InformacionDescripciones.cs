@@ -9,9 +9,13 @@ public class InformacionDescripciones : MonoBehaviour
     public TextMeshProUGUI muestraDescripcion;
     public TextMeshProUGUI muestraTextoVelocidad;
     public TextMeshProUGUI muestraValorVelocidad;
+    public TextMeshProUGUI muestraTextoTier;
     public TextMeshProUGUI muestraTextoCosteAccion;
     public TextMeshProUGUI muestraValorCosteAccion;
     public TextMeshProUGUI muestraAtributos;
+
+    private string fuerza;
+    private string penetracion;
 
     void Start()
     {
@@ -20,10 +24,20 @@ public class InformacionDescripciones : MonoBehaviour
 
     public void MuestraInformacionHabilidad(Habilidad habilidad)
     {
+        if (habilidad.penetracion == 0) penetracion = habilidad.penetracion.ToString();
+        else penetracion = " -" + habilidad.penetracion.ToString();
+
+        if(!(habilidad.descripcion.IndexOf(" ") < 0))
+        {
+            if (habilidad.descripcion.Substring(0, habilidad.descripcion.IndexOf(" ")) == "Range") fuerza = habilidad.fuerza.ToString();
+            else fuerza = " +" + habilidad.fuerza.ToString();
+        }
+
         muestraNombre.text = habilidad.nombre;
-        muestraDescripcion.text = string.Format(habilidad.descripcion, habilidad.daño);
+        muestraDescripcion.text = string.Format(habilidad.descripcion, fuerza, penetracion, " "+habilidad.daño);
         muestraTextoVelocidad.text = "V:";
         muestraValorVelocidad.text = habilidad.velocidad.ToString();
+        if (muestraTextoTier != null) muestraTextoTier.text = habilidad.tier.ToString();
         muestraTextoCosteAccion.text = "PA:";
         muestraValorCosteAccion.text = habilidad.coste.ToString();
     }
@@ -39,8 +53,11 @@ public class InformacionDescripciones : MonoBehaviour
 
         muestraTextoVelocidad.text = "PA:";
         muestraValorVelocidad.text = personaje.accionesMaximas.ToString();
+        if (muestraTextoTier != null) muestraTextoTier.text = "lvl:"+personaje.nivel.ToString();
         muestraTextoCosteAccion.text = personaje.heridasActuales.ToString()+"/";
         muestraValorCosteAccion.text = personaje.heridasMaximas.ToString();
+
+        if(muestraAtributos != null) { 
         muestraAtributos.text = 
             "HP_" + personaje.punteria + "\n" +
             "HC_" + personaje.habilidadCombate + "\n" +
@@ -49,6 +66,7 @@ public class InformacionDescripciones : MonoBehaviour
             "R_" + personaje.resistencia + "\n" +
             "SV_" + personaje.salvacion + "\n" +
             "INV_" + personaje.salvacionInvulnerable;
+        }
     }
 
     public void LimpiaInformacion()
@@ -57,8 +75,9 @@ public class InformacionDescripciones : MonoBehaviour
         muestraDescripcion.text = "";
         muestraTextoVelocidad.text = "";
         muestraValorVelocidad.text = "";
+        if (muestraTextoTier != null) muestraTextoTier.text = "";
         muestraTextoCosteAccion.text = "";
         muestraValorCosteAccion.text = "";
-        muestraAtributos.text = "";
+        if (muestraAtributos != null) muestraAtributos.text = "";
     }
 }

@@ -131,6 +131,16 @@ public class GameManager : MonoBehaviour
         habilidadesALanzar.ActualizaLista();
     }
 
+    public void ActualizarBotonesHabilidades()
+    {
+        for(int i = 0; i < listaBotonesInterfaz[0].transform.childCount; i++)
+        {
+            listaBotonesInterfaz[0].transform.GetChild(i).GetComponent<InteractuarBotonHabilidad>().habilidad = jugador.habilidades[i];
+
+            listaBotonesInterfaz[0].transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = jugador.habilidades[i].nombre;
+        }
+    }
+
     public void ActivaBotonesInterfaz()
     {       
         foreach (GameObject boton in listaBotonesInterfaz)

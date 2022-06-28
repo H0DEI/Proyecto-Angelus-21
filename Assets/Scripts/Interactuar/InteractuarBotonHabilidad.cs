@@ -68,9 +68,15 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
     {
         if (puedeCambiarse)
         {
-            habilidad = instancia.habilidadLevelUp;
+            for (int i = 0; i < jugador.habilidades.Count; i++)
+            {
+                if (jugador.habilidades[i].nombre == habilidad.nombre)
+                {
+                    jugador.habilidades[i] = instancia.habilidadLevelUp;
+                }
+            }
 
-            instancia.cargaInterfazHabilidades.ReseteaTextoHabilidades();
+            instancia.ActualizarBotonesHabilidades();
         }
         else if (numUsos > 0)
         {

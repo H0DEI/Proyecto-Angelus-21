@@ -6,6 +6,8 @@ using TMPro;
 
 public class InteractuarLevelUp : MonoBehaviour, IBoton
 {
+    public bool esMejora;
+
     public Habilidad habilidad;
 
     public GameObject InterfazJugable;
@@ -14,6 +16,10 @@ public class InteractuarLevelUp : MonoBehaviour, IBoton
     private TextMeshProUGUI texto;
 
     private GameManager instancia;
+
+    private int indice;
+
+    private string habiNormal;
 
     private void Start()
     {
@@ -28,9 +34,27 @@ public class InteractuarLevelUp : MonoBehaviour, IBoton
 
         instancia.DesactivaBotonesInterfaz();
         instancia.DesactivaPersonajes();
-        instancia.ActivaBotonesInterfaz(2);
 
-        instancia.habilidadLevelUp = habilidad;
+        if (!esMejora)
+        {
+            instancia.ActivaBotonesInterfaz(2);
+
+            instancia.habilidadLevelUp = habilidad;
+        }
+        else
+        {
+            indice = habilidad.nombre.LastIndexOf("+") + 1;
+
+            if (int.Parse(habilidad.nombre.Substring(indice)) == 0) habiNormal = habilidad.nombre.Substring(0, indice + 1);
+            else habiNormal = habilidad.nombre + (int.Parse(habilidad.nombre.Substring(indice) + 1) - 1).ToString();
+
+            for(int i = 0; i < instancia.jugador.habilidades.Count; i++)
+            {
+                if (instancia.jugador.habilidades[i].nombre == habiNormal) instancia.jugador.habilidades[i] = habilidad;
+            }
+
+            instancia.ActualizarBotonesHabilidades();
+        }        
 
         LevelUp.SetActive(false);
     }

@@ -7,21 +7,30 @@ public class XP : MonoBehaviour
 {
     public int xp;
 
-    public List<Habilidad> TierB; //35
-    public List<Habilidad> TierA; //25
-    public List<Habilidad> TierS; //5
-    public List<Habilidad> Upgrades; //35
+    public List<Habilidad> TierB; 
+    public List<Habilidad> TierA; 
+    public List<Habilidad> TierS; 
+    public List<Habilidad> Upgrades;
+
+    public Habilidad[] TodasHabilidades;
 
     public GameObject[] descripciones;
 
     public GameObject InterfazJugable;
     public GameObject LevelUp;
 
+    private bool upgrade;
+
+    private int indice;
+
+    private string nombreMejora;
+
     private GameManager instancia;
 
     private Personaje jugador;
 
     private List<Habilidad> Temp;
+    private List<Habilidad> TempMejoras;
 
     private Habilidad habilidad;
 
@@ -34,6 +43,40 @@ public class XP : MonoBehaviour
         instancia.XP = this;
 
         jugador = instancia.jugador;
+
+        TodasHabilidades = Resources.LoadAll<Habilidad>("");
+
+        foreach(Habilidad habilidad in TodasHabilidades)
+        {
+            switch (habilidad.tier)
+            {
+                case TierHabilidad.TierB:
+
+                    TierB.Add(habilidad);
+
+                break;
+
+                case TierHabilidad.TierA:
+
+                    TierA.Add(habilidad);
+
+                break;
+
+                case TierHabilidad.TierS:
+
+                    TierS.Add(habilidad);
+
+                    break;
+
+                case TierHabilidad.Upgrade:
+
+                    Upgrades.Add(habilidad);
+
+                break;
+            }
+        }
+
+        gameObject.SetActive(false);
     }
 
     public void ExperienciaEscena()
@@ -63,6 +106,7 @@ public class XP : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             int rnd = random.Next(101);
+
             if (rnd > 94)
             {
                 Temp = TierS;
@@ -77,14 +121,55 @@ public class XP : MonoBehaviour
             }
             else if (rnd > -1)
             {
-                Temp = Upgrades;
+                TempMejoras = Upgrades;
+
+                upgrade = true;
             }
 
+            if (upgrade)
+            {
+                foreach (Habilidad habi in jugador.habilidades)
+                {
+                    indice = habi.nombre.LastIndexOf("+") + 1;
+
+                    if (indice == 0) nombreMejora = habilidad.nombre + " +1";
+                    else nombreMejora = habilidad.nombre + (int.Parse(habi.nombre.Substring(indice)) + 1).ToString();
+
+                    for (int j = 0; j < TempMejoras.Count; j++)
+                    {
+                        if (TempMejoras[j].nombre == nombreMejora)
+                        {
+                            Temp.Add(TempMejoras[j]);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (Habilidad habi in jugador.habilidades)
+                {
+                    for (int j = 0; j < Temp.Count; j++)
+                    {
+                        if (Temp[j].nombre == habi.nombre)
+                        {
+                            Temp.RemoveAt(j);
+                            j--;
+                        }
+                    }
+                }
+            }
+            
             habilidad = Instantiate(Temp[random.Next(Temp.Count)]);
 
-            descripciones[i].GetComponent<InformacionDescripciones>().MuestraInformacionHabilidad(habilidad);
+            descripciones[i].GetComponentInChildren<InformacionDescripciones>().MuestraInformacionHabilidad(habilidad);
+                            
+            descripciones[i].GetComponentInChildren<InteractuarLevelUp>().habilidad = habilidad;
+                            
+            descripciones[i].GetComponentInChildren<InteractuarLevelUp>().esMejora = upgrade;
 
-            descripciones[i].GetComponent<InteractuarLevelUp>().habilidad = habilidad;
+            TempMejoras.Clear();
+
+            upgrade = false;
         }
     }
 }

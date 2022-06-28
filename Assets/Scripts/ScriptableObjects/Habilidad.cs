@@ -33,6 +33,8 @@ public class Habilidad : ScriptableObject, IComparable
 
     public int numeroDeUsos;
 
+    public TierHabilidad tier;
+
     public void Usar()
     {
         foreach (Accion accion in acciones) 

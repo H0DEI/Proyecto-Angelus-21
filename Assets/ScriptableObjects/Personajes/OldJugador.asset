@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd6cbb7ad8a1ca46b224e0e0a3bed47, type: 3}
+  m_Name: OldJugador
+  m_EditorClassIdentifier: 
+  nombre: ???????
+  nivel: 1
+  punteria: 2
+  habilidadCombate: 2
+  habilidadEspecial: 2
+  fuerza: 5
+  resistencia: 6
+  heridasMaximas: 27
+  heridasActuales: 27
+  salvacion: 3
+  salvacionInvulnerable: 6
+  accionesMaximas: 3
+  accionesActuales: 3
+  estados: []
+  habilidades:
+  - {fileID: 11400000, guid: 452641ad03831f84e912767b3ef19e1d, type: 2}
+  - {fileID: 11400000, guid: daf0ec2db3bb1984aaa8511b5bb43654, type: 2}
+  - {fileID: 11400000, guid: 217b02e7c48524244a49d2b0ca58d761, type: 2}
+  - {fileID: 11400000, guid: c432b966df3b103459fe474247b4cf45, type: 2}
+  - {fileID: 11400000, guid: 600ce32615e1a1947a66cda66306559e, type: 2}
+  - {fileID: 11400000, guid: 9dbd89a6613924543a6d54d26cb67688, type: 2}
+  - {fileID: 11400000, guid: 857180ff8bdcad248becff6c92990927, type: 2}
+  - {fileID: 11400000, guid: f389e55b14c4a9b4e8ecf5a38fb5b76d, type: 2}
+  - {fileID: 11400000, guid: 39df664f9c4077748af0c841cb2b2add, type: 2}
