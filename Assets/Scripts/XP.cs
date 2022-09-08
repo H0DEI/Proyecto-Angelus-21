@@ -32,7 +32,7 @@ public class XP : MonoBehaviour
     private Personaje jugador;
 
     private List<Habilidad> Temp = new List<Habilidad>();
-    private List<Habilidad> TempMejoras;
+    private Habilidad[] TempMejoras;
 
     private Habilidad habilidad;
 
@@ -77,6 +77,8 @@ public class XP : MonoBehaviour
                 break;
             }
         }
+
+        TempMejoras = new Habilidad[Upgrades.Count];
 
         gameObject.SetActive(false);
     }
@@ -127,7 +129,7 @@ public class XP : MonoBehaviour
             }
             else if (rnd > -1)
             {
-                TempMejoras = Upgrades;
+                Upgrades.CopyTo(TempMejoras);
 
                 upgrade = true;
             }
@@ -139,9 +141,9 @@ public class XP : MonoBehaviour
                     indice = (habi.nombre.LastIndexOf("+") + 1);
 
                     if (indice == 0) nombreMejora = habi.nombre + " +1";
-                    else nombreMejora = habi.nombre + (int.Parse(habi.nombre.Substring(indice)) + 1).ToString();
+                    else nombreMejora = habi.nombre.Substring(0, indice) + (int.Parse(habi.nombre.Substring(indice)) + 1).ToString();
 
-                    for (int j = 0; j < TempMejoras.Count; j++)
+                    for (int j = 0; j < TempMejoras.Length; j++)
                     {
                         if (TempMejoras[j].nombre == nombreMejora)
                         {
@@ -173,7 +175,9 @@ public class XP : MonoBehaviour
 
             BtnOpts[i].GetComponentInChildren<InteractuarLevelUp>().esMejora = upgrade;
 
-            if(TempMejoras != null) TempMejoras.Clear();
+            if(TempMejoras != null) Array.Clear(TempMejoras, 0, TempMejoras.Length);
+
+            Temp.Clear();
 
             upgrade = false;
         }
