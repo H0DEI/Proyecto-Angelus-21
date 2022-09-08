@@ -63,7 +63,7 @@ public class InteractuarTextoListaHabilidad : MonoBehaviour, IBoton
 
         texto.color = colorDefault;
 
-        instancia.informacionDescripciones.LimpiaInformacion();
+        //instancia.informacionDescripciones.LimpiaInformacion();
 
         instancia.ResetearObjetivosSeleccionables();
     }

@@ -19,6 +19,8 @@ public class XP : MonoBehaviour
     public GameObject InterfazJugable;
     public GameObject LevelUp;
 
+    public List<GameObject> BtnOpts;
+
     private bool upgrade;
 
     private int indice;
@@ -29,14 +31,14 @@ public class XP : MonoBehaviour
 
     private Personaje jugador;
 
-    private List<Habilidad> Temp;
+    private List<Habilidad> Temp = new List<Habilidad>();
     private List<Habilidad> TempMejoras;
 
     private Habilidad habilidad;
 
     private static readonly System.Random random = new System.Random();
 
-    private void Start()
+    private void Awake()
     {
         instancia = GameManager.instancia;
 
@@ -100,12 +102,16 @@ public class XP : MonoBehaviour
 
     public void SubidaNivel()
     {
+        instancia.informacionDescripciones.bloqueoDescripcion = true;
+
         InterfazJugable.SetActive(false);
         LevelUp.SetActive(true);
 
         for (int i = 0; i < 3; i++)
         {
-            int rnd = random.Next(101);
+            //int rnd = random.Next(101);
+
+            int rnd = 7;
 
             if (rnd > 94)
             {
@@ -130,10 +136,10 @@ public class XP : MonoBehaviour
             {
                 foreach (Habilidad habi in jugador.habilidades)
                 {
-                    indice = habi.nombre.LastIndexOf("+") + 1;
+                    indice = (habi.nombre.LastIndexOf("+") + 1);
 
-                    if (indice == 0) nombreMejora = habilidad.nombre + " +1";
-                    else nombreMejora = habilidad.nombre + (int.Parse(habi.nombre.Substring(indice)) + 1).ToString();
+                    if (indice == 0) nombreMejora = habi.nombre + " +1";
+                    else nombreMejora = habi.nombre + (int.Parse(habi.nombre.Substring(indice)) + 1).ToString();
 
                     for (int j = 0; j < TempMejoras.Count; j++)
                     {
@@ -163,11 +169,11 @@ public class XP : MonoBehaviour
 
             descripciones[i].GetComponentInChildren<InformacionDescripciones>().MuestraInformacionHabilidad(habilidad);
                             
-            descripciones[i].GetComponentInChildren<InteractuarLevelUp>().habilidad = habilidad;
-                            
-            descripciones[i].GetComponentInChildren<InteractuarLevelUp>().esMejora = upgrade;
+            BtnOpts[i].GetComponentInChildren<InteractuarLevelUp>().habilidad = habilidad;
 
-            TempMejoras.Clear();
+            BtnOpts[i].GetComponentInChildren<InteractuarLevelUp>().esMejora = upgrade;
+
+            if(TempMejoras != null) TempMejoras.Clear();
 
             upgrade = false;
         }

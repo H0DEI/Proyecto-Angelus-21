@@ -1,0 +1,41 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using XNode;
+
+public class BaseNode : Node {
+
+	// Use this for initialization
+
+	[Input] public int entry;
+	[Output] public int exit; 
+
+	protected override void Init() {
+		base.Init();
+	}
+
+	public virtual System.Type ReturnType()
+    {
+		return typeof(BaseNode);
+    }
+
+	public virtual void Execute()
+    {
+		Debug.Log("Executing node");
+    }
+
+	public virtual BaseNode NextNode(string _exit)
+    {
+		foreach (NodePort p in this.Ports)
+        {
+			if (p.fieldName == _exit)
+            {
+				return p.Connection.node as BaseNode;
+				break;
+            }
+        }
+
+		return null;
+	}
+
+}

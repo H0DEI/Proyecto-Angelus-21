@@ -30,32 +30,46 @@ public class InteractuarLevelUp : MonoBehaviour, IBoton
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        InterfazJugable.SetActive(true);
+        instancia.informacionDescripciones.bloqueoDescripcion = false;
 
+        InterfazJugable.SetActive(true);
+       
         instancia.DesactivaBotonesInterfaz();
         instancia.DesactivaPersonajes();
-
+       
         if (!esMejora)
         {
-            instancia.ActivaBotonesInterfaz(2);
-
+            instancia.ActivaBotonesInterfaz(0);
+       
             instancia.habilidadLevelUp = habilidad;
+
+            instancia.puedeCambiarseHabilidad = true;
         }
         else
         {
             indice = habilidad.nombre.LastIndexOf("+") + 1;
 
-            if (int.Parse(habilidad.nombre.Substring(indice)) == 0) habiNormal = habilidad.nombre.Substring(0, indice + 1);
-            else habiNormal = habilidad.nombre + (int.Parse(habilidad.nombre.Substring(indice) + 1) - 1).ToString();
+            //  if (int.Parse(habilidad.nombre.Substring(indice)) == 0) habiNormal = habilidad.nombre.Substring(0, indice + 1);
+            //  else habiNormal = habilidad.nombre + (int.Parse(habilidad.nombre.Substring(indice) + 1) - 1).ToString();
 
-            for(int i = 0; i < instancia.jugador.habilidades.Count; i++)
+            int prueba = int.Parse(habilidad.nombre.Substring(indice));
+            int coletilla = int.Parse(habilidad.nombre.Substring(indice)) - 1;
+
+            if (coletilla == 0) habiNormal = habilidad.nombre.Substring(0, indice - 2);
+            else habiNormal = habilidad.nombre.Substring(0, indice) + coletilla;
+
+
+           // if (prueba == 0) habiNormal = habilidad.nombre.Substring(0, indice + 1);
+           // else habiNormal = habilidad.nombre + coletilla;
+
+            for (int i = 0; i < instancia.jugador.habilidades.Count; i++)
             {
                 if (instancia.jugador.habilidades[i].nombre == habiNormal) instancia.jugador.habilidades[i] = habilidad;
             }
-
+       
             instancia.ActualizarBotonesHabilidades();
         }        
-
+       
         LevelUp.SetActive(false);
     }
 

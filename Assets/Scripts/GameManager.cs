@@ -57,6 +57,8 @@ public class GameManager : MonoBehaviour
 
     public Habilidad habilidadLevelUp;
 
+    public bool puedeCambiarseHabilidad;
+
     //Escena 1 carga fea, corregir
     public Escena escena1;
 
@@ -133,7 +135,7 @@ public class GameManager : MonoBehaviour
 
     public void ActualizarBotonesHabilidades()
     {
-        for(int i = 0; i < listaBotonesInterfaz[0].transform.childCount; i++)
+        for (int i = 0; i < listaBotonesInterfaz[0].transform.childCount; i++)
         {
             listaBotonesInterfaz[0].transform.GetChild(i).GetComponent<InteractuarBotonHabilidad>().habilidad = jugador.habilidades[i];
 
@@ -153,18 +155,18 @@ public class GameManager : MonoBehaviour
 
     public void ActivaBotonesInterfaz(int indice)
     {
-            IBoton[] scripts = listaBotonesInterfaz[indice].GetComponentsInChildren<IBoton>();
+        IBoton[] scripts = listaBotonesInterfaz[indice].GetComponentsInChildren<IBoton>();
 
-            foreach (IBoton script in scripts) script.Activar();
+        foreach (IBoton script in scripts) script.Activar();
     }
 
     public void DesactivaBotonesInterfaz()
     {
         foreach (GameObject boton in listaBotonesInterfaz)
         {
-        IBoton[] scripts = boton.GetComponentsInChildren<IBoton>();
+            IBoton[] scripts = boton.GetComponentsInChildren<IBoton>();
             
-        foreach(IBoton script in scripts) script.Desactivar();
+            foreach(IBoton script in scripts) script.Desactivar();
         }
     }
 

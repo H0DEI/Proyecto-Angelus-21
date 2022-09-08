@@ -14,13 +14,15 @@ public class InformacionDescripciones : MonoBehaviour
     public TextMeshProUGUI muestraValorCosteAccion;
     public TextMeshProUGUI muestraAtributos;
 
+    public bool bloqueoDescripcion;
+
     private string fuerza;
     private string penetracion;
 
-    void Start()
-    {
-        LimpiaInformacion();
-    }
+   //void Start()
+   //{
+   //    LimpiaInformacion();
+   //}
 
     public void MuestraInformacionHabilidad(Habilidad habilidad)
     {
@@ -32,7 +34,7 @@ public class InformacionDescripciones : MonoBehaviour
             if (habilidad.descripcion.Substring(0, habilidad.descripcion.IndexOf(" ")) == "Range") fuerza = habilidad.fuerza.ToString();
             else fuerza = " +" + habilidad.fuerza.ToString();
         }
-
+        
         muestraNombre.text = habilidad.nombre;
         muestraDescripcion.text = string.Format(habilidad.descripcion, fuerza, penetracion, " "+habilidad.daño);
         muestraTextoVelocidad.text = "V:";
@@ -44,6 +46,8 @@ public class InformacionDescripciones : MonoBehaviour
 
     public void MuestraInformacionPersonaje(Personaje personaje)
     {
+        muestraDescripcion.text = "";
+
         muestraNombre.text = personaje.nombre;
 
         foreach (Habilidad hab in personaje.habilidades)
@@ -69,15 +73,15 @@ public class InformacionDescripciones : MonoBehaviour
         }
     }
 
-    public void LimpiaInformacion()
-    {
-        muestraNombre.text = "";
-        muestraDescripcion.text = "";
-        muestraTextoVelocidad.text = "";
-        muestraValorVelocidad.text = "";
-        if (muestraTextoTier != null) muestraTextoTier.text = "";
-        muestraTextoCosteAccion.text = "";
-        muestraValorCosteAccion.text = "";
-        if (muestraAtributos != null) muestraAtributos.text = "";
-    }
+   //public void LimpiaInformacion()
+   //{
+   //    muestraNombre.text = "";
+   //    muestraDescripcion.text = "";
+   //    muestraTextoVelocidad.text = "";
+   //    muestraValorVelocidad.text = "";
+   //    if (muestraTextoTier != null) muestraTextoTier.text = "";
+   //    muestraTextoCosteAccion.text = "";
+   //    muestraValorCosteAccion.text = "";
+   //    if (muestraAtributos != null) muestraAtributos.text = "";
+   //}
 }

@@ -48,7 +48,7 @@ public class UniPlayerCamDemo : MonoBehaviour{
     public Transform gunMount;
 
 
-    CharacterController controller;
+    UnityEngine.CharacterController controller;
           
     //float camFlySpeed = .2f;
 
@@ -71,7 +71,7 @@ public class UniPlayerCamDemo : MonoBehaviour{
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        controller = GetComponent<UnityEngine.CharacterController>();
 
         _fps_Distance = playerCamera.transform.localPosition.z;
         _fps_Height = playerCamera.transform.localPosition.y;

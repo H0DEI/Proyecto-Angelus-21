@@ -14,7 +14,6 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
     public Habilidad habilidad;
 
     private bool puedePresionarse;
-    private bool puedeCambiarse;
 
     private TextMeshProUGUI texto;
 
@@ -26,6 +25,8 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
 
     private void Start()
     {
+        InteractuarBotonHabilidad a = this;
+
         puedePresionarse = true;
 
         instancia = GameManager.instancia;
@@ -59,14 +60,14 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
     {
         texto.fontStyle = FontStyles.Normal;
 
-        instancia.informacionDescripciones.LimpiaInformacion();
+        //instancia.informacionDescripciones.LimpiaInformacion();
 
         if(!instancia.habilidadSeleccionada) instancia.ResetearObjetivosSeleccionables();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (puedeCambiarse)
+        if (instancia.puedeCambiarseHabilidad)
         {
             for (int i = 0; i < jugador.habilidades.Count; i++)
             {
@@ -77,6 +78,8 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
             }
 
             instancia.ActualizarBotonesHabilidades();
+
+            instancia.puedeCambiarseHabilidad = false;
         }
         else if (numUsos > 0)
         {

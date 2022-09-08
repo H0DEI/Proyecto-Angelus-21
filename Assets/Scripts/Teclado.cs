@@ -10,7 +10,6 @@ public class Teclado : MonoBehaviour
     public GameObject habilidad4;
     public GameObject habilidad5;
     public GameObject habilidad6;
-    public GameObject habilidad7;
 
     private InteractuarBotonHabilidad hab1;
     private InteractuarBotonHabilidad hab2;
@@ -18,7 +17,6 @@ public class Teclado : MonoBehaviour
     private InteractuarBotonHabilidad hab4;
     private InteractuarBotonHabilidad hab5;
     private InteractuarBotonHabilidad hab6;
-    private InteractuarBotonHabilidad hab7;
 
     private void Start()
     {
@@ -28,7 +26,6 @@ public class Teclado : MonoBehaviour
         hab4 = habilidad4.GetComponent<InteractuarBotonHabilidad>();
         hab5 = habilidad5.GetComponent<InteractuarBotonHabilidad>();
         hab6 = habilidad6.GetComponent<InteractuarBotonHabilidad>();
-        hab7 = habilidad7.GetComponent<InteractuarBotonHabilidad>();
     }
 
     private void Update()
@@ -39,6 +36,5 @@ public class Teclado : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q)) hab4.PulsaHabilidad();
         if (Input.GetKeyDown(KeyCode.W)) hab5.PulsaHabilidad();
         if (Input.GetKeyDown(KeyCode.E)) hab6.PulsaHabilidad();
-        if (Input.GetKeyDown(KeyCode.Space)) hab7.PulsaHabilidad();
     }
 }

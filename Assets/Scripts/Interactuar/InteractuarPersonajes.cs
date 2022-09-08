@@ -55,7 +55,7 @@ public class InteractuarPersonajes : MonoBehaviour
     {
         spriteRenderer.color = porDefecto;
 
-        instancia.informacionDescripciones.LimpiaInformacion();
+        //instancia.informacionDescripciones.LimpiaInformacion();
 
         //if (instancia.mostrarIndicador) instancia.indicadorRaton.SetActive(false);
     }
