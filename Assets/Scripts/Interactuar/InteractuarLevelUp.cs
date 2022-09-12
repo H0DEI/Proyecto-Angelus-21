@@ -49,18 +49,10 @@ public class InteractuarLevelUp : MonoBehaviour, IBoton
         {
             indice = habilidad.nombre.LastIndexOf("+") + 1;
 
-            //  if (int.Parse(habilidad.nombre.Substring(indice)) == 0) habiNormal = habilidad.nombre.Substring(0, indice + 1);
-            //  else habiNormal = habilidad.nombre + (int.Parse(habilidad.nombre.Substring(indice) + 1) - 1).ToString();
-
-            int prueba = int.Parse(habilidad.nombre.Substring(indice));
             int coletilla = int.Parse(habilidad.nombre.Substring(indice)) - 1;
 
             if (coletilla == 0) habiNormal = habilidad.nombre.Substring(0, indice - 2);
             else habiNormal = habilidad.nombre.Substring(0, indice) + coletilla;
-
-
-           // if (prueba == 0) habiNormal = habilidad.nombre.Substring(0, indice + 1);
-           // else habiNormal = habilidad.nombre + coletilla;
 
             for (int i = 0; i < instancia.jugador.habilidades.Count; i++)
             {

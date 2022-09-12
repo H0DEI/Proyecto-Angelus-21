@@ -14,17 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: H27
   nivel: 1
-  punteria: 4
-  habilidadCombate: 4
-  habilidadEspecial: 0
-  fuerza: 5
-  resistencia: 5
+  punteria: 15
+  habilidadCombate: 12
+  habilidadEspecial: 7
+  fuerza: 10
+  resistencia: 7
+  agilidad: 5
   heridasMaximas: 27
   heridasActuales: 27
-  salvacion: 4
-  salvacionInvulnerable: 6
-  accionesMaximas: 3
-  accionesActuales: 3
+  salvacion: 11
+  salvacionInvulnerable: 7
+  accionesMaximas: 2
+  accionesActuales: 2
   experienciaActual: 0
   requisitoNivel: 1
   gameObject: {fileID: 0}

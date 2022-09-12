@@ -32,7 +32,7 @@ public class XP : MonoBehaviour
     private Personaje jugador;
 
     private List<Habilidad> Temp = new List<Habilidad>();
-    private Habilidad[] TempMejoras;
+    private List<Habilidad> TempMejoras;
 
     private Habilidad habilidad;
 
@@ -78,8 +78,6 @@ public class XP : MonoBehaviour
             }
         }
 
-        TempMejoras = new Habilidad[Upgrades.Count];
-
         gameObject.SetActive(false);
     }
 
@@ -94,11 +92,16 @@ public class XP : MonoBehaviour
     }
     public void ComprovarNivel()
     {
-        jugador.experienciaActual -= jugador.requisitoNivel;
+        if (instancia.jugador.experienciaActual >= instancia.jugador.requisitoNivel)
+        {
+            jugador.experienciaActual -= jugador.requisitoNivel;
 
-        jugador.requisitoNivel += 2;
+            jugador.requisitoNivel += 2;
 
-        SubidaNivel();
+            jugador.nivel += 1;
+
+            SubidaNivel();
+        }
     }
 
 
@@ -111,25 +114,23 @@ public class XP : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            //int rnd = random.Next(101);
-
-            int rnd = 7;
+            int rnd = random.Next(101);
 
             if (rnd > 94)
             {
-                Temp = TierS;
+                Temp = new List<Habilidad>(TierS);
             }
             else if(rnd > 69)
             {
-                Temp = TierA;
+                Temp = new List<Habilidad>(TierA);
             }
             else if(rnd > 34)
             {
-                Temp = TierB;
+                Temp = new List<Habilidad>(TierB);
             }
             else if (rnd > -1)
             {
-                Upgrades.CopyTo(TempMejoras);
+                TempMejoras = new List<Habilidad>(Upgrades);
 
                 upgrade = true;
             }
@@ -143,7 +144,7 @@ public class XP : MonoBehaviour
                     if (indice == 0) nombreMejora = habi.nombre + " +1";
                     else nombreMejora = habi.nombre.Substring(0, indice) + (int.Parse(habi.nombre.Substring(indice)) + 1).ToString();
 
-                    for (int j = 0; j < TempMejoras.Length; j++)
+                    for (int j = 0; j < TempMejoras.Count; j++)
                     {
                         if (TempMejoras[j].nombre == nombreMejora)
                         {
@@ -175,9 +176,9 @@ public class XP : MonoBehaviour
 
             BtnOpts[i].GetComponentInChildren<InteractuarLevelUp>().esMejora = upgrade;
 
-            if(TempMejoras != null) Array.Clear(TempMejoras, 0, TempMejoras.Length);
+            if (Temp != null) Temp.Clear();
 
-            Temp.Clear();
+            if (TempMejoras != null) TempMejoras.Clear();
 
             upgrade = false;
         }

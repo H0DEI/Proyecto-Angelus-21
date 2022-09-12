@@ -141,6 +141,8 @@ public class GameManager : MonoBehaviour
 
             listaBotonesInterfaz[0].transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = jugador.habilidades[i].nombre;
         }
+
+        instancia.XP.ComprovarNivel();
     }
 
     public void ActivaBotonesInterfaz()
@@ -335,6 +337,9 @@ public class GameManager : MonoBehaviour
             {
                 do {
                     habilidad = lHabilidades[Random.Range(0, enemigo.habilidades.Count())];
+
+                    habilidad.velocidad += enemigo.agilidad;
+
                 } while (habilidad.coste > puntosAcciones);
                
                 switch (habilidad.tipoSeleccion)

@@ -179,6 +179,8 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
         jugador.accionesActuales -= habilidad.coste;
 
         habilidad.personaje = jugador;
+
+        habilidad.velocidad += habilidad.personaje.agilidad;
         
         instancia.habilidadesALanzar.listaHabilidadesALanzar.Add(new KeyValuePair<Habilidad, bool>(Instantiate(habilidad), true));
         

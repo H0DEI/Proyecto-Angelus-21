@@ -13,6 +13,7 @@ public class Personaje : ScriptableObject
     public int habilidadEspecial;
     public int fuerza;
     public int resistencia;
+    public int agilidad;
     public int heridasMaximas;
     public int heridasActuales;
     public int salvacion;

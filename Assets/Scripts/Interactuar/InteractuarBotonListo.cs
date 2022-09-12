@@ -89,12 +89,8 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
             instancia.EscenaCompletada();
 
             instancia.jugador.experienciaActual += instancia.XP.xp;
-
-            //Hacer bucle
-            if(instancia.jugador.experienciaActual >= instancia.jugador.requisitoNivel)
-            {
-                instancia.XP.ComprovarNivel();
-            }
+            
+            instancia.XP.ComprovarNivel();
         }
 
         instancia.habilidadesALanzar.listaHabilidadesALanzar.Clear();
