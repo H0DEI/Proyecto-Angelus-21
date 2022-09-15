@@ -14,17 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: Johnson
   nivel: 7
-  punteria: 2
-  habilidadCombate: 3
+  punteria: 20
+  habilidadCombate: 17
   habilidadEspecial: 2
   fuerza: 4
   resistencia: 7
+  agilidad: 0
   heridasMaximas: 30
   heridasActuales: 30
-  salvacion: 2
+  salvacion: 10
   salvacionInvulnerable: 6
   accionesMaximas: 4
   accionesActuales: 0
+  experienciaActual: 0
+  requisitoNivel: 0
+  gameObject: {fileID: 0}
   estados: []
   habilidades:
   - {fileID: 11400000, guid: 61a025db0c3eb3342a6824c9a541728e, type: 2}

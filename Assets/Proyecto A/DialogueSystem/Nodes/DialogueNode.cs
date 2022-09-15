@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
-
+[Serializable]
 [NodeWidth(290)]
 public class DialogueNode : BaseNode {
 
@@ -16,7 +17,9 @@ public class DialogueNode : BaseNode {
 	public bool changeColor = false;
 	public Color color = Color.clear;
 
-	public bool dialogueOptions = false; 
+	public bool dialogueOptions = false;
+
+	private GameManagerAbril instance;
 
 	[System.Serializable]
 	public class DialogueOption
@@ -46,11 +49,16 @@ public class DialogueNode : BaseNode {
 
 	public override void Execute()
     {
-		DialogueSystem.instance.DisplayDialogue(speaker, dialogue, character);
-		if (changeColor)
+        if (instance == null) instance = GameManagerAbril.instance;
+
+        instance.dialogueSystem.DisplayDialogue(speaker, dialogue, character);
+
+		instance.dialogueSystem.ExecuteAnimation();
+
+        if (changeColor)
 		{
-			DialogueSystem.instance.SetBoxColor(color);
+            instance.dialogueSystem.SetBoxColor(color);
 		}
-		DialogueSystem.instance.displayOptions = dialogueOptions;
+        instance.dialogueSystem.displayOptions = dialogueOptions;
     }
 }

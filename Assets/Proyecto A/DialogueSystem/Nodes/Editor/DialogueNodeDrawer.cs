@@ -155,6 +155,7 @@ public class DialogueNodeDrawer : NodeEditor
 
             EditorGUIUtility.labelWidth = 150;
             dialogueNode.dialogueOptions = EditorGUILayout.Toggle("Show dialogue options?", dialogueNode.dialogueOptions);
+
             EditorGUIUtility.labelWidth = prevWidth;
 
             if (dialogueNode.dialogueOptions)

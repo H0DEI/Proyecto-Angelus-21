@@ -30,6 +30,7 @@ public class InteractuarLevelUp : MonoBehaviour, IBoton
 
     public void OnPointerClick(PointerEventData eventData)
     {
+
         instancia.informacionDescripciones.bloqueoDescripcion = false;
 
         InterfazJugable.SetActive(true);
@@ -56,9 +57,12 @@ public class InteractuarLevelUp : MonoBehaviour, IBoton
 
             for (int i = 0; i < instancia.jugador.habilidades.Count; i++)
             {
-                if (instancia.jugador.habilidades[i].nombre == habiNormal) instancia.jugador.habilidades[i] = habilidad;
+                if (instancia.jugador.habilidades[i].nombre == habiNormal)
+                {
+                    instancia.jugador.habilidades[i] = habilidad;
+                }                
             }
-       
+
             instancia.ActualizarBotonesHabilidades();
         }        
        

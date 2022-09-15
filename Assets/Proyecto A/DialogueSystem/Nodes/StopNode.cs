@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 [NodeTint("#ff5338")]
 public class StopNode : BaseNode {
 
-	// Use this for initialization
+	public string sceneLoad;
+
 	protected override void Init() {
 		base.Init();
 		
@@ -21,6 +23,8 @@ public class StopNode : BaseNode {
 
 	public override void Execute()
     {
-		DialogueSystem.instance.Stop(); 
+		DialogueSystem.dsInstance.Stop();
+
+		if(sceneLoad != "") SceneManager.LoadScene(sceneLoad);
     }
 }

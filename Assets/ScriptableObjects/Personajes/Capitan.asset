@@ -14,16 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: Capitan
   nivel: 6
-  punteria: 3
+  punteria: 13
   habilidadCombate: 3
   habilidadEspecial: 1
   fuerza: 4
   resistencia: 4
-  heridasMaximas: 20
-  heridasActuales: 20
-  salvacion: 3
+  agilidad: 0
+  heridasMaximas: 15
+  heridasActuales: 15
+  salvacion: 7
+  salvacionInvulnerable: 0
   accionesMaximas: 4
   accionesActuales: 0
+  experienciaActual: 0
+  requisitoNivel: 0
+  gameObject: {fileID: 0}
   estados: []
   habilidades:
   - {fileID: 11400000, guid: 1325d2979955cc046a3598f1ed9e589f, type: 2}

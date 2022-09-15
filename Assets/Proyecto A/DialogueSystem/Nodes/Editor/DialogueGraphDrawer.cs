@@ -22,6 +22,7 @@ public class DialogueGraphDrawer : NodeGraphEditor
             dialogueGraph = target as DialogueGraph;
         }
 
+        
         serializedObject.Update(); 
 
         Color backgroundColor = new Color(25, 25, 25, 0.8f);

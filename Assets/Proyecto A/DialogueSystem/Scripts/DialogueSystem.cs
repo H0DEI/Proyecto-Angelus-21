@@ -7,13 +7,19 @@ using TMPro;
 public class DialogueSystem : MonoBehaviour
 {
 
-    public static DialogueSystem instance;
+    public static DialogueSystem dsInstance;
 
-    public void Awake()
+    private GameManagerAbril instance;
+
+    private Animator animator;
+
+    private Transform character;
+
+    public void Start()
     {
-        if (instance == null)
+        if (dsInstance == null)
         {
-            instance = this;
+            dsInstance = this;
             DontDestroyOnLoad(this.gameObject);
             return;
         }
@@ -74,6 +80,7 @@ public class DialogueSystem : MonoBehaviour
                 return;
             }
             currentGraph.currentNode = currentGraph.currentNode.NextNode("exit");
+
             currentGraph.currentNode.Execute();
         }
         else if (playing && pickingOption)
@@ -131,14 +138,14 @@ public class DialogueSystem : MonoBehaviour
         {
             if (i <= maxSelection)
             {
-                choices[i].color = Color.white;
+                choices[i].color = Color.black;
             }
             else
             {
                 choices[i].color = Color.clear; 
             }
         }
-        choices[currentSelection].color = Color.red;
+        choices[currentSelection].color = Color.white;
     }
 
     public void PickOption()
@@ -158,4 +165,25 @@ public class DialogueSystem : MonoBehaviour
         boxBackground.color = _color;
     }
 
+    public void ExecuteAnimation()
+    {
+        if (instance == null) instance = GameManagerAbril.instance;
+
+        if (!(currentGraph.currentNode.animations == null))
+        {
+            foreach(TwoStrings characterAnimation in currentGraph.currentNode.animations)
+            {
+                character = instance.characters.transform.Find(characterAnimation.name);
+
+                if (character != null)
+                {
+                    animator = character.GetComponent<Animator>();
+
+                    animator.SetTrigger(characterAnimation.value);
+                }
+            }
+        }
+
+        character = null;
+    }
 }

@@ -14,16 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: Granadero
   nivel: 3
-  punteria: 4
-  habilidadCombate: 3
+  punteria: 12
+  habilidadCombate: 5
   habilidadEspecial: 0
   fuerza: 3
   resistencia: 3
-  heridasMaximas: 15
-  heridasActuales: 15
-  salvacion: 4
+  agilidad: 0
+  heridasMaximas: 12
+  heridasActuales: 12
+  salvacion: 6
+  salvacionInvulnerable: 0
   accionesMaximas: 2
   accionesActuales: 0
+  experienciaActual: 0
+  requisitoNivel: 0
+  gameObject: {fileID: 0}
   estados: []
   habilidades:
   - {fileID: 11400000, guid: b8ec5bdaf0aefe040ae0a78e928080ba, type: 2}

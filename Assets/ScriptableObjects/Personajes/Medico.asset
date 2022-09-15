@@ -14,16 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: Cadete Medico
   nivel: 1
-  punteria: 5
-  habilidadCombate: 3
-  habilidadEspecial: 0
+  punteria: 10
+  habilidadCombate: 6
+  habilidadEspecial: 3
   fuerza: 3
   resistencia: 3
+  agilidad: 0
   heridasMaximas: 10
   heridasActuales: 10
   salvacion: 5
+  salvacionInvulnerable: 0
   accionesMaximas: 1
   accionesActuales: 0
+  experienciaActual: 0
+  requisitoNivel: 0
+  gameObject: {fileID: 0}
   estados: []
   habilidades:
   - {fileID: 11400000, guid: 8c02ec2aac3b6f744b16e5531c1bb81a, type: 2}

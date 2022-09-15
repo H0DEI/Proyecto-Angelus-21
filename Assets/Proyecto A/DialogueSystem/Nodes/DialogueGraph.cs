@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using XNode;
 
@@ -7,17 +8,22 @@ using XNode;
 public class DialogueGraph : NodeGraph {
 
 	public BaseNode currentNode;
-	public BaseNode startNode; 
+	public BaseNode startNode;
 
-	public void Start()
+    private GameManagerAbril instance;
+
+
+    public void Start()
     {
-		currentNode = startNode;
+        if (instance == null) instance = GameManagerAbril.instance;
+
+        currentNode = startNode;
+
 		Execute();
     }
 
 	public void Execute()
     {
-		currentNode.Execute(); 
+		currentNode.Execute();
     }
-
 }

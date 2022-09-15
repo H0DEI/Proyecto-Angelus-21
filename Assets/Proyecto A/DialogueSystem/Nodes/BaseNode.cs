@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using XNode;
 
@@ -8,9 +9,11 @@ public class BaseNode : Node {
 	// Use this for initialization
 
 	[Input] public int entry;
-	[Output] public int exit; 
+	[Output] public int exit;
 
-	protected override void Init() {
+    public List<TwoStrings> animations;
+
+    protected override void Init() {
 		base.Init();
 	}
 
@@ -21,7 +24,8 @@ public class BaseNode : Node {
 
 	public virtual void Execute()
     {
-		Debug.Log("Executing node");
+
+        Debug.Log("Executing node");
     }
 
 	public virtual BaseNode NextNode(string _exit)
@@ -37,5 +41,4 @@ public class BaseNode : Node {
 
 		return null;
 	}
-
 }

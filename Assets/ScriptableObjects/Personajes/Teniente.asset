@@ -14,16 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: Teniente
   nivel: 4
-  punteria: 4
-  habilidadCombate: 3
+  punteria: 13
+  habilidadCombate: 8
   habilidadEspecial: 1
   fuerza: 4
   resistencia: 3
+  agilidad: 0
   heridasMaximas: 13
   heridasActuales: 13
-  salvacion: 4
+  salvacion: 8
+  salvacionInvulnerable: 0
   accionesMaximas: 2
   accionesActuales: 0
+  experienciaActual: 0
+  requisitoNivel: 0
+  gameObject: {fileID: 0}
   estados: []
   habilidades:
   - {fileID: 11400000, guid: 1325d2979955cc046a3598f1ed9e589f, type: 2}
