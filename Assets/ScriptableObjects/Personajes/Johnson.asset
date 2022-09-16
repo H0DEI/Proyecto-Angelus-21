@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Johnson
   m_EditorClassIdentifier: 
   nombre: Johnson
-  nivel: 7
+  nivel: 10
   punteria: 20
   habilidadCombate: 17
   habilidadEspecial: 2

@@ -12,6 +12,12 @@ public class GameManagerAbril : MonoBehaviour
 
     public GameObject dialogue;
 
+    public GameObject name;
+
+    public GameObject Icon;
+
+    public GameObject background;
+
     private void Awake()
     {
         instance = this;

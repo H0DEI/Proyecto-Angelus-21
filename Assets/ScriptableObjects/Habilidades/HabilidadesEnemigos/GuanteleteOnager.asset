@@ -28,3 +28,6 @@ MonoBehaviour:
   objetivos: []
   tipoSeleccion: 0
   cantidad: 1
+  usosLimitados: 0
+  numeroDeUsos: 727
+  tier: 0

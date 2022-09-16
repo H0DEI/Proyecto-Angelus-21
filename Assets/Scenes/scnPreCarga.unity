@@ -6866,21 +6866,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ataque:\nPara hacer un ataque se realizan una serie de tiradas de dados
-    para ver si el ataque impacta, hiere y finalmente da\xF1a al objetivo.\r\nNota:
-    un resultado de 1 siempre es fallo, y un resultado de 6 siempre es un exito,
-    esta regla ignora cualquier modificador aplicado.\r\n\r\n\nImpacto:\r\nPara impactar
-    se necesita en el dado un resultado igual o superior al atributo HP(Range) o
-    HC(Melee).\r\n\r\n\nHerir:\r\nPara herir se comparan la fuerza del ataque con
+  m_text: "--Ataque--\nPara hacer un ataque se realizan una serie de tiradas de dados
+    para ver si el ataque impacta, hiere y finalmente da\xF1a al objetivo.\r\nEn
+    las tiradas para impactar y salvacion el se lanza un dado de 1d? el maximo numero
+    posible es el de la propia estadistica.\nNota: un resultado de 1 siempre es fallo,
+    y un resultado de 6 siempre es un exito, esta regla ignora cualquier modificador
+    aplicado.\r\n\r\n\n--Impacto--\nPara impactar solo falla la tirada con un resultado
+    de 5 o menor, el atributo utilizado para el maximo valor de este dado es HP(Range)
+    o HC(Melee).\r\n\n--Herir--\nPara herir se comparan la fuerza del ataque con
     la resistencia del objetivo y entonces se ve si el resultado del dado es igual
     o superior al requisito.\r\n2 la fuerza duplica a la resistencia\r\n3 la fuerza
     es superior a la resistencia\r\n4 la fuerza es igual a la resistencia\r\n5 la
-    fuerza es menor que la resistencia\r\n6 la resistencia duplica a la fuerza\r\n\r\n\nSalvacion:\r\nEl
+    fuerza es menor que la resistencia\r\n6 la resistencia duplica a la fuerza\r\n\r\n--Salvacion--\nEl
     objetivo tras ser herido, debera realizar una tirada para comprobar si su blindaje
-    o habilidades lo salvan del da\xF1o. La tirada debe ser igual o superior al requisito.
-    El factor de penetracion del ataque resta su valor a la tirada de salvacion.\r\n\n\r\nSalvacion
-    Invulnerable:\r\nEn lugar de usar el atributo de salvacion normal se puede usar
-    el de la salvacion invulnerable, este atributo ignora el factor de penetracion."
+    o habilidades lo salvan del da\xF1o. La tirada falla con un resultado de 5 o
+    menor y el atributo utilizado para esta es la Salvacion. El factor de penetracion
+    del ataque resta su valor a la tirada de salvacion.\r\n\n\r\n--Salvacion Invulnerable--\nEn
+    lugar de usar el atributo de salvacion normal se puede usar el de la salvacion
+    invulnerable, este atributo ignora el factor de penetracion.\nEs decir, cuando
+    un ataque fuera a mermar lo suficiente la salvacion para que esta sea menor que
+    la invulnerable, se usara la salvacion invulnerable en su lugar."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e7316708f4a7e94a90ef5034d819412, type: 2}
   m_sharedMaterial: {fileID: -3719327980534479143, guid: 6e7316708f4a7e94a90ef5034d819412, type: 2}
@@ -6907,8 +6912,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7101,6 +7106,8 @@ MonoBehaviour:
 
     R_
 
+    A_
+
     SV_
 
     INV_'
@@ -7130,8 +7137,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 19
+  m_fontSizeBase: 19
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8562,8 +8569,10 @@ MonoBehaviour:
 
     R _ Resistencia
 
-    SV
-    _ Salvacion
+    A_
+    Agilidad
+
+    SV _ Salvacion
 
     INV _ Salvacion invulnerable
 
@@ -10780,7 +10789,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &883504445
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25551,8 +25560,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\t\tTeclado:\n\nHabilidad      1 2 3 4  5  6     7\n\nTecla \t       1
-    2 3 Q W E space"
+  m_text: "\t\tTeclado:\n\nHabilidad      1 2 3 4  5  6\n\nTecla \t       1 2 3 Q
+    W E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e7316708f4a7e94a90ef5034d819412, type: 2}
   m_sharedMaterial: {fileID: -3719327980534479143, guid: 6e7316708f4a7e94a90ef5034d819412, type: 2}

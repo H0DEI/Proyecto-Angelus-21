@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: so02
   m_EditorClassIdentifier: 
   idEscena: scn02
-  xp: 7
+  xp: 2
   completada: 0
   personajes:
   - {fileID: 11400000, guid: b7529ad8394efa240a9a419cce7ad7df, type: 2}

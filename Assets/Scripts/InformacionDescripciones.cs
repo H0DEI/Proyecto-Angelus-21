@@ -19,11 +19,6 @@ public class InformacionDescripciones : MonoBehaviour
     private string fuerza;
     private string penetracion;
 
-   //void Start()
-   //{
-   //    LimpiaInformacion();
-   //}
-
     public void MuestraInformacionHabilidad(Habilidad habilidad)
     {
         if (habilidad.penetracion == 0) penetracion = habilidad.penetracion.ToString();
@@ -68,6 +63,7 @@ public class InformacionDescripciones : MonoBehaviour
             "HE_" + personaje.habilidadEspecial + "\n" +
             "F_" + personaje.fuerza + "\n" +
             "R_" + personaje.resistencia + "\n" +
+            "A_" + personaje.agilidad + "\n" +
             "SV_" + personaje.salvacion + "\n" +
             "INV_" + personaje.salvacionInvulnerable;
         }

@@ -7,4 +7,5 @@ public class CharacterColor
 {
     public string name;
     public Color color;
+    public Sprite sprite;
 }

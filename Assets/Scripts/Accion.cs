@@ -6,10 +6,12 @@ public enum Accion
 {
     Disparo,
     GolpeMasFuerza,
+    GolpeMasFuerzaMasHabilidad,
     Golpe,
     DisparoPierdeSaludRestante,
     DisparoDañoPorcentualVidaActual,
     MejoraFuerzaYAccionesMaximas,
+    MejoraAgilidad,
     GolpeUnObjetivoMasFuerzaMasDañoPorcentual,
     GolpeYSiMataCuracion,
     Curar,

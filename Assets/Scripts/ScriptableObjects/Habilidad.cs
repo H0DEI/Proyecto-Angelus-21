@@ -59,6 +59,15 @@ public class Habilidad : ScriptableObject, IComparable
 
                     break;
 
+                case Accion.GolpeMasFuerzaMasHabilidad:
+
+                    foreach (Personaje objetivo in objetivos)
+                    {
+                        RealizaTiradas(personaje.habilidadCombate, personaje.fuerza + personaje.habilidadEspecial + fuerza, objetivo, daño);
+                    }
+
+                    break;
+
                 case Accion.Golpe:
 
                     foreach (Personaje objetivo in objetivos)
@@ -93,6 +102,14 @@ public class Habilidad : ScriptableObject, IComparable
                     personaje.fuerza += fuerza;
 
                     personaje.accionesMaximas += 1;
+
+                    Anima(personaje, "Mejora");
+
+                    break;
+
+                case Accion.MejoraAgilidad:
+
+                    personaje.agilidad += fuerza;
 
                     Anima(personaje, "Mejora");
 

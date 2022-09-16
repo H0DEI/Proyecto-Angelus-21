@@ -80,6 +80,10 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
             instancia.ActualizarBotonesHabilidades();
 
             instancia.puedeCambiarseHabilidad = false;
+
+            instancia.AbrirCerrarPuertas(true);
+
+            instancia.XP.ComprovarNivel();
         }
         else if (numUsos > 0)
         {

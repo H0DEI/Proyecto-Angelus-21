@@ -141,8 +141,6 @@ public class GameManager : MonoBehaviour
 
             listaBotonesInterfaz[0].transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = jugador.habilidades[i].nombre;
         }
-
-        instancia.XP.ComprovarNivel();
     }
 
     public void ActivaBotonesInterfaz()

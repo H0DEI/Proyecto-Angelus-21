@@ -169,6 +169,8 @@ public class DialogueSystem : MonoBehaviour
     {
         if (instance == null) instance = GameManagerAbril.instance;
 
+        instance.background.GetComponent<BackgroundChange>().SpriteChange();
+
         if (!(currentGraph.currentNode.animations == null))
         {
             foreach(TwoStrings characterAnimation in currentGraph.currentNode.animations)

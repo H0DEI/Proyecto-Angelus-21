@@ -110,6 +110,7 @@ public class XP : MonoBehaviour
         instancia.informacionDescripciones.bloqueoDescripcion = true;
 
         InterfazJugable.SetActive(false);
+        instancia.AbrirCerrarPuertas(false);
         LevelUp.SetActive(true);
 
         for (int i = 0; i < 3; i++)

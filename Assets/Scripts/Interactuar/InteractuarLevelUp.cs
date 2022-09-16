@@ -33,11 +33,11 @@ public class InteractuarLevelUp : MonoBehaviour, IBoton
 
         instancia.informacionDescripciones.bloqueoDescripcion = false;
 
-        InterfazJugable.SetActive(true);
-       
         instancia.DesactivaBotonesInterfaz();
         instancia.DesactivaPersonajes();
-       
+
+        InterfazJugable.SetActive(true);
+
         if (!esMejora)
         {
             instancia.ActivaBotonesInterfaz(0);
@@ -45,6 +45,8 @@ public class InteractuarLevelUp : MonoBehaviour, IBoton
             instancia.habilidadLevelUp = habilidad;
 
             instancia.puedeCambiarseHabilidad = true;
+
+            LevelUp.SetActive(false);
         }
         else
         {
@@ -64,9 +66,13 @@ public class InteractuarLevelUp : MonoBehaviour, IBoton
             }
 
             instancia.ActualizarBotonesHabilidades();
-        }        
-       
-        LevelUp.SetActive(false);
+
+            instancia.AbrirCerrarPuertas(true);
+
+            LevelUp.SetActive(false);
+
+            instancia.XP.ComprovarNivel();
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Medico
   m_EditorClassIdentifier: 
   nombre: Cadete Medico
-  nivel: 1
+  nivel: 2
   punteria: 10
   habilidadCombate: 6
   habilidadEspecial: 3

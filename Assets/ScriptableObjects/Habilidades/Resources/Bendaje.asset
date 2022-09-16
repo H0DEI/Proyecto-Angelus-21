@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
-  m_Name: AR RF +1
+  m_Name: Bendaje
   m_EditorClassIdentifier: 
-  nombre: AR RF +1
-  descripcion: Range  A 8  F{0}  FP{1}  D{2}
+  nombre: Bendaje
+  descripcion: Restaura 1d6 de salud
   coste: 1
-  velocidad: 8
-  fuerza: 4
+  velocidad: 10
+  fuerza: 0
   penetracion: 0
-  "da\xF1o": 1
-  acciones: 0000000000000000000000000000000000000000000000000000000000000000
+  "da\xF1o": 0
+  acciones: 0b000000
   personaje: {fileID: 0}
   objetivos: []
-  tipoSeleccion: 1
+  tipoSeleccion: 5
   cantidad: 1
   usosLimitados: 0
   numeroDeUsos: 727
-  tier: 3
+  tier: 0
