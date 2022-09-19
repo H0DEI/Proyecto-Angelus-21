@@ -218,14 +218,6 @@ public class GameManager : MonoBehaviour
         ResetearAttributosJugador();
 
         DesactivaBotonesInterfaz();
-
-
-
-        //!!!!!!!!!!!!!aqui poner xp
-        //!!!!!!!!!!!!!aqui poner xp
-        //!!!!!!!!!!!!!aqui poner xp
-        //!!!!!!!!!!!!!aqui poner xp
-        //!!!!!!!!!!!!!aqui poner xp
     }
 
     public void MuestraObjetivosSeleccionables(Habilidad habilidad, bool soyJugador)
