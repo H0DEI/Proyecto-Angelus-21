@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: so12
   m_EditorClassIdentifier: 
   idEscena: scn12
+  xp: 0
   completada: 0
   personajes:
-  - {fileID: 11400000, guid: b7529ad8394efa240a9a419cce7ad7df, type: 2}
+  - {fileID: 11400000, guid: 6c8055dcbfada0046968f0bf9ddd4d38, type: 2}
   - {fileID: 11400000, guid: f8da15599d324bb44bf77aecc19de53d, type: 2}
   - {fileID: 11400000, guid: f8da15599d324bb44bf77aecc19de53d, type: 2}
   - {fileID: 11400000, guid: badbbee0a58bcc04d9029a233c4ecf2c, type: 2}

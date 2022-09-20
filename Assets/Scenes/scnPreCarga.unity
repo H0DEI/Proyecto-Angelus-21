@@ -2404,17 +2404,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150159399}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -21.040695}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2756557585881885881}
-  m_RootOrder: 1
+  m_Father: {fileID: 4242784041891255438}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.2438588, y: 3.0286026}
-  m_SizeDelta: {x: 1.04, y: -0.32449996}
+  m_AnchoredPosition: {x: 0, y: -0.199}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &150159401
 MonoBehaviour:
@@ -2445,8 +2445,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190292
-  m_fontColor: {r: 0.8301887, g: 0, b: 0, a: 1}
+    rgba: 212
+  m_fontColor: {r: 0.8301887, g: 0, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3709,7 +3709,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223168351}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2151412, y: -2.3826027, z: 16.442696}
+  m_LocalPosition: {x: -1.2151412, y: -2.3826027, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18596,7 +18596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5345264513765747086, guid: 9a2b78697851b8e4ebb23c9dcaf02615, type: 3}
       propertyPath: characterColors.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5345264513765747086, guid: 9a2b78697851b8e4ebb23c9dcaf02615, type: 3}
       propertyPath: characterColors.Array.data[0].name
@@ -18607,6 +18607,10 @@ PrefabInstance:
       value: Cadete
       objectReference: {fileID: 0}
     - target: {fileID: 5345264513765747086, guid: 9a2b78697851b8e4ebb23c9dcaf02615, type: 3}
+      propertyPath: characterColors.Array.data[2].name
+      value: Sargento
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345264513765747086, guid: 9a2b78697851b8e4ebb23c9dcaf02615, type: 3}
       propertyPath: characterColors.Array.data[0].sprite
       value: 
       objectReference: {fileID: 21300000, guid: 87dc3324c1a70bf478002a3cf23b8b67, type: 3}
@@ -18614,6 +18618,10 @@ PrefabInstance:
       propertyPath: characterColors.Array.data[1].sprite
       value: 
       objectReference: {fileID: 7229665476665118614, guid: 2bd73302cdfc61f489dbed7ef087dcef, type: 3}
+    - target: {fileID: 5345264513765747086, guid: 9a2b78697851b8e4ebb23c9dcaf02615, type: 3}
+      propertyPath: characterColors.Array.data[2].sprite
+      value: 
+      objectReference: {fileID: 2915628838593525140, guid: 2bd73302cdfc61f489dbed7ef087dcef, type: 3}
     - target: {fileID: 5345264513765747086, guid: 9a2b78697851b8e4ebb23c9dcaf02615, type: 3}
       propertyPath: characterColors.Array.data[0].color.b
       value: 0.5849056
@@ -18625,6 +18633,30 @@ PrefabInstance:
     - target: {fileID: 5345264513765747086, guid: 9a2b78697851b8e4ebb23c9dcaf02615, type: 3}
       propertyPath: characterColors.Array.data[0].color.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345264513765747086, guid: 9a2b78697851b8e4ebb23c9dcaf02615, type: 3}
+      propertyPath: characterColors.Array.data[1].color.b
+      value: 0.4528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345264513765747086, guid: 9a2b78697851b8e4ebb23c9dcaf02615, type: 3}
+      propertyPath: characterColors.Array.data[1].color.g
+      value: 0.4528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345264513765747086, guid: 9a2b78697851b8e4ebb23c9dcaf02615, type: 3}
+      propertyPath: characterColors.Array.data[1].color.r
+      value: 0.4528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345264513765747086, guid: 9a2b78697851b8e4ebb23c9dcaf02615, type: 3}
+      propertyPath: characterColors.Array.data[2].color.b
+      value: 0.4509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345264513765747086, guid: 9a2b78697851b8e4ebb23c9dcaf02615, type: 3}
+      propertyPath: characterColors.Array.data[2].color.g
+      value: 0.4509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345264513765747086, guid: 9a2b78697851b8e4ebb23c9dcaf02615, type: 3}
+      propertyPath: characterColors.Array.data[2].color.r
+      value: 0.4509804
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a2b78697851b8e4ebb23c9dcaf02615, type: 3}
@@ -26730,12 +26762,11 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2756557585881885880}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.348}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4242784041891255438}
-  - {fileID: 150159400}
   m_Father: {fileID: 223168353}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27017,6 +27048,7 @@ RectTransform:
   - {fileID: 8742968240330225777}
   - {fileID: 8742968239770459546}
   - {fileID: 8742968239054494883}
+  - {fileID: 150159400}
   m_Father: {fileID: 2756557585881885881}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -1,0 +1,472 @@
+fileFormatVersion: 2
+guid: 1b7b13f17b395ae46b9e3067b0775ae4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6560942985191191008
+    second: MarineN_0
+  - first:
+      213: -4722172973947284239
+    second: MarineN_1
+  - first:
+      213: 7229665476665118614
+    second: MarineN_2
+  - first:
+      213: -5025056956425535664
+    second: MarineN_3
+  - first:
+      213: -3690216978517222565
+    second: MarineN_4
+  - first:
+      213: -2254993309314799579
+    second: MarineN_5
+  - first:
+      213: -8068977734512013738
+    second: MarineN_6
+  - first:
+      213: -1587609813563410675
+    second: MarineN_7
+  - first:
+      213: 1192827884909166383
+    second: MarineN_8
+  - first:
+      213: 6616208010674642831
+    second: MarineN_9
+  - first:
+      213: -9108162040934295935
+    second: MarineN_10
+  - first:
+      213: 6570776602150885194
+    second: MarineN_11
+  - first:
+      213: 2915628838593525140
+    second: MarineN_12
+  - first:
+      213: 4733538803854898392
+    second: MarineN_13
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MarineN_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 292
+        width: 102
+        height: 224
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e8618cd19d2f4a0800000000000000
+      internalID: -6560942985191191008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarineN_1
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 293
+        width: 125
+        height: 223
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f41ce703b8777eb0800000000000000
+      internalID: -4722172973947284239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cadete_D
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 293
+        width: 130
+        height: 226
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69f8785527ee45460800000000000000
+      internalID: 7229665476665118614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medico_D
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 293
+        width: 142
+        height: 226
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f76207259634ab0800000000000000
+      internalID: -5025056956425535664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarineN_4
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 294
+        width: 121
+        height: 227
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5b9d5ba537b9ccc0800000000000000
+      internalID: -3690216978517222565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capitan_D
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 293
+        width: 138
+        height: 280
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 52}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 528a86b5887a4b0e0800000000000000
+      internalID: -2254993309314799579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarineN_6
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 290
+        width: 108
+        height: 281
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 49}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65e00e1708b350090800000000000000
+      internalID: -8068977734512013738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarineN_7
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 10
+        width: 134
+        height: 225
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d07f0ac394da7f9e0800000000000000
+      internalID: -1587609813563410675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Teniente_D
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 7
+        width: 111
+        height: 278
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 49}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2ff03634a6cd8010800000000000000
+      internalID: 1192827884909166383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarineN_9
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 9
+        width: 130
+        height: 226
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f1b5ca12e71db50800000000000000
+      internalID: 6616208010674642831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Granadero_D
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 9
+        width: 128
+        height: 225
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1861a6181ee499180800000000000000
+      internalID: -9108162040934295935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Suboficial_D
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 8
+        width: 120
+        height: 225
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a47d6a59186103b50800000000000000
+      internalID: 6570776602150885194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sargento_D
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 9
+        width: 140
+        height: 225
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49570452bf4667820800000000000000
+      internalID: 2915628838593525140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarineN_13
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 10
+        width: 118
+        height: 228
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d47c467678e0b140800000000000000
+      internalID: 4733538803854898392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5f7f58113b71cfa46a95b18bdc7a108d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      MarineN_7: -1587609813563410675
+      MarineN_1: -4722172973947284239
+      MarineN_4: -3690216978517222565
+      Sargento_D: 2915628838593525140
+      Teniente_D: 1192827884909166383
+      MarineN_6: -8068977734512013738
+      Cadete_D: 7229665476665118614
+      Granadero_D: -9108162040934295935
+      MarineN_13: 4733538803854898392
+      Medico_D: -5025056956425535664
+      MarineN_9: 6616208010674642831
+      Suboficial_D: 6570776602150885194
+      Capitan_D: -2254993309314799579
+      MarineN_0: -6560942985191191008
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

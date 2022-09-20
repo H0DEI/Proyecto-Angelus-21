@@ -62,7 +62,12 @@ public class InteractuarPersonajes : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (elegible && vivo && puedePresionarse) instancia.interactuarBotonHabilidad.ObjetivoSeleccionado(personaje);
+        if (elegible && vivo && puedePresionarse)
+        {
+            instancia.ResetearObjetivosSeleccionables();
+
+            instancia.interactuarBotonHabilidad.ObjetivoSeleccionado(personaje);
+        }
     }
 
     public void Desactivar()

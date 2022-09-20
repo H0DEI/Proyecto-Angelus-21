@@ -105,7 +105,6 @@ public class DialogueSystem : MonoBehaviour
             }
             if (space)
             {
-                Debug.Log("Entering");
                 PickOption(); 
             }
         }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 648, y: 8}
+  position: {x: 1016, y: 40}
   ports:
     keys:
     - entry
@@ -24,8 +24,8 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: ejecutar
-        node: {fileID: 7347416699979443767}
+      - fieldName: exit
+        node: {fileID: 8715677652430715431}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   exit: 0
   animations: []
   sceneLoad: 
---- !u!114 &-1276832349317757896
+--- !u!114 &-7324619598414678716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,26 +57,26 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 680, y: 424}
+  position: {x: 1272, y: 472}
   ports:
     keys:
     - entry
     - exit
     values:
     - _fieldName: entry
-      _node: {fileID: -1276832349317757896}
+      _node: {fileID: -7324619598414678716}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: Dejar ir
-        node: {fileID: 7347416699979443767}
+      - fieldName: exit
+        node: {fileID: 6674621195893501436}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
-      _node: {fileID: -1276832349317757896}
+      _node: {fileID: -7324619598414678716}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
@@ -91,8 +91,61 @@ MonoBehaviour:
   exit: 0
   animations: []
   character: {fileID: 0}
+  speaker: Cadete
+  dialogue: Muere!!!
+  changeColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  dialogueOptions: 0
+  dialogueOptionList: []
+--- !u!114 &-1276832349317757896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168b7afd778e5f64faedda544594c4f3, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 600, y: 488}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -1276832349317757896}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: interrogar
+        node: {fileID: 7347416699979443767}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -1276832349317757896}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 6674621195893501436}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  animations: []
+  character: {fileID: 0}
   speaker: H27
-  dialogue: Te has librado
+  dialogue: Que clase de experimentos llevais a cabo en esta nave soldado?!
   changeColor: 0
   color: {r: 0, g: 0, b: 0, a: 0}
   dialogueOptions: 0
@@ -116,7 +169,10 @@ MonoBehaviour:
   - {fileID: -8643346972491552523}
   - {fileID: -1276832349317757896}
   - {fileID: 1831086405764694892}
-  currentNode: {fileID: 0}
+  - {fileID: 6674621195893501436}
+  - {fileID: -7324619598414678716}
+  - {fileID: 8715677652430715431}
+  currentNode: {fileID: 7347416699979443767}
   startNode: {fileID: 4323811011526538406}
 --- !u!114 &1831086405764694892
 MonoBehaviour:
@@ -131,7 +187,7 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1071.6816, y: 466.37784}
+  position: {x: 1656, y: 488}
   ports:
     keys:
     - entry
@@ -143,7 +199,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -1276832349317757896}
+        node: {fileID: -7324619598414678716}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -265,6 +321,59 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   dialogueOptions: 0
   dialogueOptionList: []
+--- !u!114 &6674621195893501436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168b7afd778e5f64faedda544594c4f3, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 920, y: 456}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 6674621195893501436}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -1276832349317757896}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 6674621195893501436}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -7324619598414678716}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  animations: []
+  character: {fileID: 0}
+  speaker: Cadete
+  dialogue: No eres el mas indicado para preguntarlo MONSTRUO
+  changeColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  dialogueOptions: 0
+  dialogueOptionList: []
 --- !u!114 &7347416699979443767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +393,7 @@ MonoBehaviour:
     - entry
     - exit
     - ejecutar
-    - Dejar ir
+    - interrogar
     values:
     - _fieldName: entry
       _node: {fileID: 7347416699979443767}
@@ -313,13 +422,13 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -8643346972491552523}
+        node: {fileID: 8715677652430715431}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
-    - _fieldName: Dejar ir
+    - _fieldName: interrogar
       _node: {fileID: 7347416699979443767}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -343,5 +452,58 @@ MonoBehaviour:
   dialogueOptionList:
   - dialogue: Ejecutar
     option: ejecutar
-  - dialogue: dejar ir
-    option: Dejar ir
+  - dialogue: Interrogar
+    option: interrogar
+--- !u!114 &8715677652430715431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168b7afd778e5f64faedda544594c4f3, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 632, y: 56}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 8715677652430715431}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: ejecutar
+        node: {fileID: 7347416699979443767}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 8715677652430715431}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -8643346972491552523}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  animations: []
+  character: {fileID: 0}
+  speaker: H27
+  dialogue: No me dejas otra opcion...
+  changeColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  dialogueOptions: 0
+  dialogueOptionList: []

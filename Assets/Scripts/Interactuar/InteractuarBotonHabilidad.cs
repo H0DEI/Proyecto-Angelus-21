@@ -51,6 +51,8 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
     {
         texto.fontStyle = FontStyles.Bold;
 
+        habilidad.personaje = jugador;
+
         instancia.informacionDescripciones.MuestraInformacionHabilidad(habilidad);
 
         if (!instancia.habilidadSeleccionada) instancia.MuestraObjetivosSeleccionables(habilidad, true);

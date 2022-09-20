@@ -60,6 +60,8 @@ public class CargaEscena : MonoBehaviour
 
             instancia.ActivaBotonesInterfaz();
 
+            instancia.ResetearObjetivosSeleccionables();
+
             instancia.XP.ExperienciaEscena();
         }
         else

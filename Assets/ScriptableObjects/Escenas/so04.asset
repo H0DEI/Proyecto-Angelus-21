@@ -17,6 +17,6 @@ MonoBehaviour:
   completada: 0
   personajes:
   - {fileID: 11400000, guid: b7529ad8394efa240a9a419cce7ad7df, type: 2}
-  - {fileID: 11400000, guid: b7529ad8394efa240a9a419cce7ad7df, type: 2}
   - {fileID: 11400000, guid: 5c999e83d96a6cd46b09cf6624256e1f, type: 2}
   - {fileID: 11400000, guid: 6c8055dcbfada0046968f0bf9ddd4d38, type: 2}
+  - {fileID: 11400000, guid: f8da15599d324bb44bf77aecc19de53d, type: 2}

@@ -249,9 +249,9 @@ public class GameManager : MonoBehaviour
 
                     instance.CambiaColorOutline(personaje.GetComponent<InteractuarPersonajes>().personaje, soyJugador, personaje);
 
-                    personaje.transform.Find("Probabilidad").GetComponent<TextMeshProUGUI>().text = MuestraProbabilidades(personaje.GetComponent<InteractuarPersonajes>().personaje, habilidad).ToString();
+                    personaje.transform.Find("Canvas").transform.Find("Probabilidad").GetComponent<TextMeshProUGUI>().text = MuestraProbabilidades(personaje.GetComponent<InteractuarPersonajes>().personaje, habilidad).ToString() + "%";
 
-                    personaje.transform.Find("Probabilidad").gameObject.SetActive(true);
+                    personaje.transform.Find("Canvas").transform.Find("Probabilidad").gameObject.SetActive(true);
 
                     personaje.GetComponent<Outline>().enabled = personaje.GetComponent<InteractuarPersonajes>().elegible = tipoSelecciones[habilidad.tipoSeleccion][i];
                 }
@@ -273,62 +273,67 @@ public class GameManager : MonoBehaviour
 
     public int MuestraProbabilidades(Personaje objetivo, Habilidad habilidad)
     {
-        int prob = 0;
+        float punteria = habilidad.personaje.punteria;
+        float agilidad = objetivo.agilidad;
+        float fuerza;
 
-        prob = ResultadoProbabilidadPunteria(habilidad, objetivo) - ResultadoProbabilidadFuerza(habilidad, objetivo) - ResultadoProbabilidadSalvacion(habilidad, objetivo);
+        if (habilidad.melee) fuerza = habilidad.personaje.fuerza + habilidad.fuerza;
+        else fuerza = habilidad.fuerza;
 
-        return prob / 300;
+        float resistencia = objetivo.resistencia;
+        float penetracion = habilidad.penetracion;
+        float salvacion = objetivo.salvacion;
+        float salvacionInvulnerable = objetivo.salvacionInvulnerable;
+
+        bool melee = habilidad.melee;
+
+        return Mathf.RoundToInt((ResultadoProbabilidadPunteria(punteria, agilidad) + ResultadoProbabilidadFuerza(fuerza, resistencia, melee) + ResultadoProbabilidadSalvacion(penetracion, salvacion, salvacionInvulnerable)) / 300 * 100);
     }
 
-    private int ResultadoProbabilidadPunteria(Habilidad habilidad, Personaje objetivo)
+    private float ResultadoProbabilidadPunteria(float punteria, float agilidad)
     {
-        int probabilidad;
+        float probabilidad;
 
-        if (habilidad.personaje.punteria - objetivo.agilidad > 5) probabilidad = 5 / (habilidad.personaje.punteria - objetivo.agilidad) * 100;
+        if (punteria - agilidad > 5) probabilidad = 5 / (punteria - agilidad) * 100;
         else probabilidad = 5 / 6 * 100;
 
         return probabilidad;
     }
 
-    private int ResultadoProbabilidadFuerza(Habilidad habilidad, Personaje objetivo)
+    private float ResultadoProbabilidadFuerza(float fuerza, float resistencia, bool melee)
     {
-        int fuerza;
+        float probabildiad;
 
-        if (habilidad.melee) fuerza = habilidad.fuerza + habilidad.personaje.fuerza;
-        else fuerza = habilidad.fuerza;
-
-        int probabilidades;
-
-        if (fuerza >= objetivo.resistencia * 2)
+        if (fuerza >= resistencia * 2)
         {
-            probabilidades = 17;
+            probabildiad = 17;
         }
-        else if (fuerza > objetivo.resistencia)
+        else if (fuerza > resistencia)
         {
-            probabilidades = 33;
+            probabildiad = 33;
         }
-        else if (fuerza == objetivo.resistencia)
+        else if (fuerza == resistencia)
         {
-            probabilidades = 50;
+            probabildiad = 50;
         }
-        else if (fuerza < objetivo.resistencia && fuerza > objetivo.resistencia / 2)
+        else if (fuerza < resistencia && fuerza > resistencia / 2)
         {
-            probabilidades = 66;
+            probabildiad = 66;
         }
         else
         {
-            probabilidades = 83;
+            probabildiad = 83;
         }
 
-        return probabilidades;
+        return probabildiad;
     }
 
-    private int ResultadoProbabilidadSalvacion(Habilidad habilidad, Personaje objetivo)
+    private float ResultadoProbabilidadSalvacion(float penetracion, float salvacion, float salvacionInvulnerable)
     {
-        int probabilidad;
+        float probabilidad;
 
-        if (objetivo.salvacion - habilidad.penetracion >= objetivo.salvacionInvulnerable) probabilidad = 5 / (objetivo.salvacion - habilidad.penetracion) * 100;
-        else if(objetivo.salvacion - habilidad.penetracion < objetivo.salvacionInvulnerable) probabilidad = 5 / objetivo.salvacionInvulnerable * 100;
+        if (salvacion - penetracion >= salvacionInvulnerable && salvacion - penetracion > 5) probabilidad = 5 / (salvacion - penetracion) * 100;
+        else if(salvacion - penetracion < salvacionInvulnerable && salvacionInvulnerable > 5) probabilidad = 5 / salvacionInvulnerable * 100;
         else probabilidad = 5 / 6 * 100;
 
         return 100 - probabilidad;
@@ -353,6 +358,8 @@ public class GameManager : MonoBehaviour
         foreach (GameObject personaje in listaObjetosPersonajesEscena)
         {
             personaje.GetComponent<Outline>().enabled = personaje.GetComponent<InteractuarPersonajes>().elegible = false;
+
+            personaje.transform.Find("Canvas").transform.Find("Probabilidad").gameObject.SetActive(false);
         }
     }
 
