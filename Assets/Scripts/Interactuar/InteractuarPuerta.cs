@@ -46,6 +46,6 @@ public class InteractuarPuerta : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if(puedePresionarse) GameManager.instancia.CompruebaYCargaEscenas(escenaCargar);
+        if(puedePresionarse) GameManager.instance.CompruebaYCargaEscenas(escenaCargar);
     }
 }

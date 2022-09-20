@@ -19,7 +19,7 @@ public class DialogueNode : BaseNode {
 
 	public bool dialogueOptions = false;
 
-	private GameManagerAbril instance;
+	private GameManager instance;
 
 	[System.Serializable]
 	public class DialogueOption
@@ -49,7 +49,7 @@ public class DialogueNode : BaseNode {
 
 	public override void Execute()
     {
-        if (instance == null) instance = GameManagerAbril.instance;
+        if (instance == null) instance = GameManager.instance;
 
         instance.dialogueSystem.DisplayDialogue(speaker, dialogue, character);
 

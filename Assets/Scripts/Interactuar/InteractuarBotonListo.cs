@@ -18,7 +18,7 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
 
     private void Start()
     {
-        instancia = GameManager.instancia;
+        instancia = GameManager.instance;
 
         puedePresionarse = true;
 

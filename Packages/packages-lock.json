@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.cakeslice.outline-effect": {
+      "version": "file:com.cakeslice.outline-effect@2.1.0",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.github.siccity.xnode": {
       "version": "https://github.com/siccity/xNode.git",
       "depth": 0,

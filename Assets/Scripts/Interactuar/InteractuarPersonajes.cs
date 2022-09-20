@@ -22,7 +22,7 @@ public class InteractuarPersonajes : MonoBehaviour
 
     private void Start()
     {
-        instancia = GameManager.instancia;
+        instancia = GameManager.instance;
         vivo = true;
 
         ColorUtility.TryParseHtmlString("#FFFFFF", out porDefecto);

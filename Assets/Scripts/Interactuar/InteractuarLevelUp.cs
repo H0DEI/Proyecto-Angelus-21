@@ -23,7 +23,7 @@ public class InteractuarLevelUp : MonoBehaviour, IBoton
 
     private void Start()
     {
-        instancia = GameManager.instancia;
+        instancia = GameManager.instance;
 
         texto = GetComponentInChildren<TextMeshProUGUI>();
     }

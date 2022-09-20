@@ -10,12 +10,12 @@ public class DialogueGraph : NodeGraph {
 	public BaseNode currentNode;
 	public BaseNode startNode;
 
-    private GameManagerAbril instance;
+    private GameManager instance;
 
 
     public void Start()
     {
-        if (instance == null) instance = GameManagerAbril.instance;
+        if (instance == null) instance = GameManager.instance;
 
         currentNode = startNode;
 

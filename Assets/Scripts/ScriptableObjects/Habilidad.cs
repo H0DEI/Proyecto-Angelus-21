@@ -31,6 +31,8 @@ public class Habilidad : ScriptableObject, IComparable
 
     public bool usosLimitados;
 
+    public bool melee;
+
     public int numeroDeUsos;
 
     public TierHabilidad tier;
@@ -263,12 +265,16 @@ public class Habilidad : ScriptableObject, IComparable
         {
             requisito = 4;
         }
-        else
+        else if (fuerza < objetivo.resistencia && fuerza > objetivo.resistencia / 2)
         {
             requisito = 5;
         }
+        else
+        {
+            requisito = 6;
+        }
 
-        if (resultado >= requisito && resultado != 1 || resultado == 6) return true;
+        if (resultado >= requisito && resultado != 1) return true;
         else return false;
     }
 

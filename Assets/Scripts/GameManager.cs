@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System.Linq;
 using cakeslice;
+using UnityEngine.Rendering;
+using System.Threading;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     public Escena escenaActual;
 
-    public static GameManager instancia;
+    public static GameManager instance;
 
     public CargaEscena cargaEscena;
 
@@ -64,15 +66,27 @@ public class GameManager : MonoBehaviour
 
     public Camera camara;
 
+    public DialogueSystem dialogueSystem;
+
+    public GameObject characters;
+
+    public GameObject dialogue;
+
+    public GameObject name;
+
+    public GameObject Icon;
+
+    public GameObject background;
+
     //public GameObject indicadorRaton;
 
     private Transform interfaz;
 
     private void Awake()
     {
-        instancia = this;
+        instance = this;
 
-        DontDestroyOnLoad(instancia);
+        DontDestroyOnLoad(instance);
 
         interfaz = transform.Find("CanvasInterfaz");
 
@@ -233,7 +247,11 @@ public class GameManager : MonoBehaviour
                 {
                     GameObject personaje = listaObjetosPersonajesEscena[i];
 
-                    instancia.CambiaColorOutline(personaje.GetComponent<InteractuarPersonajes>().personaje, soyJugador, personaje);
+                    instance.CambiaColorOutline(personaje.GetComponent<InteractuarPersonajes>().personaje, soyJugador, personaje);
+
+                    personaje.transform.Find("Probabilidad").GetComponent<TextMeshProUGUI>().text = MuestraProbabilidades(personaje.GetComponent<InteractuarPersonajes>().personaje, habilidad).ToString();
+
+                    personaje.transform.Find("Probabilidad").gameObject.SetActive(true);
 
                     personaje.GetComponent<Outline>().enabled = personaje.GetComponent<InteractuarPersonajes>().elegible = tipoSelecciones[habilidad.tipoSeleccion][i];
                 }
@@ -244,7 +262,7 @@ public class GameManager : MonoBehaviour
 
                 foreach (GameObject personaje in listaObjetosPersonajesEscena.Skip(1))
                 {
-                    instancia.CambiaColorOutline(personaje.GetComponent<InteractuarPersonajes>().personaje, soyJugador, personaje);
+                    instance.CambiaColorOutline(personaje.GetComponent<InteractuarPersonajes>().personaje, soyJugador, personaje);
 
                     personaje.GetComponent<Outline>().enabled = true;
                 }
@@ -252,6 +270,70 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+
+    public int MuestraProbabilidades(Personaje objetivo, Habilidad habilidad)
+    {
+        int prob = 0;
+
+        prob = ResultadoProbabilidadPunteria(habilidad, objetivo) - ResultadoProbabilidadFuerza(habilidad, objetivo) - ResultadoProbabilidadSalvacion(habilidad, objetivo);
+
+        return prob / 300;
+    }
+
+    private int ResultadoProbabilidadPunteria(Habilidad habilidad, Personaje objetivo)
+    {
+        int probabilidad;
+
+        if (habilidad.personaje.punteria - objetivo.agilidad > 5) probabilidad = 5 / (habilidad.personaje.punteria - objetivo.agilidad) * 100;
+        else probabilidad = 5 / 6 * 100;
+
+        return probabilidad;
+    }
+
+    private int ResultadoProbabilidadFuerza(Habilidad habilidad, Personaje objetivo)
+    {
+        int fuerza;
+
+        if (habilidad.melee) fuerza = habilidad.fuerza + habilidad.personaje.fuerza;
+        else fuerza = habilidad.fuerza;
+
+        int probabilidades;
+
+        if (fuerza >= objetivo.resistencia * 2)
+        {
+            probabilidades = 17;
+        }
+        else if (fuerza > objetivo.resistencia)
+        {
+            probabilidades = 33;
+        }
+        else if (fuerza == objetivo.resistencia)
+        {
+            probabilidades = 50;
+        }
+        else if (fuerza < objetivo.resistencia && fuerza > objetivo.resistencia / 2)
+        {
+            probabilidades = 66;
+        }
+        else
+        {
+            probabilidades = 83;
+        }
+
+        return probabilidades;
+    }
+
+    private int ResultadoProbabilidadSalvacion(Habilidad habilidad, Personaje objetivo)
+    {
+        int probabilidad;
+
+        if (objetivo.salvacion - habilidad.penetracion >= objetivo.salvacionInvulnerable) probabilidad = 5 / (objetivo.salvacion - habilidad.penetracion) * 100;
+        else if(objetivo.salvacion - habilidad.penetracion < objetivo.salvacionInvulnerable) probabilidad = 5 / objetivo.salvacionInvulnerable * 100;
+        else probabilidad = 5 / 6 * 100;
+
+        return 100 - probabilidad;
+    }
+
 
     public void SeleccionaTodosLosPersonajes(Habilidad habilidad, bool SinJugador)
     {
@@ -330,13 +412,15 @@ public class GameManager : MonoBehaviour
 
                     habilidad.velocidad += enemigo.agilidad;
 
+                    habilidad.personaje = enemigo;
+
                 } while (habilidad.coste > puntosAcciones);
                
                 switch (habilidad.tipoSeleccion)
                 {
                     case TipoSeleccion.SoloJugador:
 
-                        habilidad.objetivos.Add(instancia.jugador);
+                        habilidad.objetivos.Add(instance.jugador);
 
                         break;
 

@@ -10,9 +10,9 @@ public class StartDialogue : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            GameManagerAbril.instance.dialogue.SetActive(true);
+            GameManager.instance.dialogue.SetActive(true);
 
-            GameManagerAbril.instance.dialogueSystem.InitGraph(dialogueGraph);
+            GameManager.instance.dialogueSystem.InitGraph(dialogueGraph);
         }
     }
 }

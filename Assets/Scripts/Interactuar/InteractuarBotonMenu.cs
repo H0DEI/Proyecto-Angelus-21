@@ -37,9 +37,9 @@ public class InteractuarBotonMenu : MonoBehaviour, IBoton
     public void OnPointerClick(PointerEventData eventData)
     {
         if (puedePresionarse) {
-            GameManager.instancia.copiasEscenas.Clear();
+            GameManager.instance.copiasEscenas.Clear();
 
-            GameManager.instancia.CompruebaYCargaEscenas(escenaCargar);
+            GameManager.instance.CompruebaYCargaEscenas(escenaCargar);
         }
     }
 

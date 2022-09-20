@@ -17,7 +17,7 @@ public class HabilidadesALanzar : MonoBehaviour
     {
         listadoHabilidades = this.transform;
 
-        GameManager.instancia.habilidadesALanzar = this;
+        GameManager.instance.habilidadesALanzar = this;
     }
 
     public void ActualizaLista()
@@ -38,13 +38,13 @@ public class HabilidadesALanzar : MonoBehaviour
 
     public void RemueveIndice(int index)
     {
-        GameManager.instancia.jugador.accionesActuales += listaHabilidadesALanzar.ElementAt(index).Key.coste;
+        GameManager.instance.jugador.accionesActuales += listaHabilidadesALanzar.ElementAt(index).Key.coste;
         
         listaHabilidadesALanzar.Remove(listaHabilidadesALanzar[index]);
 
         ActualizaLista();
 
-        GameManager.instancia.informacionInterfaz.ActualizaPuntos();
+        GameManager.instance.informacionInterfaz.ActualizaPuntos();
     }
 
     public void OrdenaLista()

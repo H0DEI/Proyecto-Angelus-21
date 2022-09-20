@@ -16,7 +16,7 @@ public class InformacionInterfaz : MonoBehaviour
 
     private void Start()
     {
-        instancia = GameManager.instancia;
+        instancia = GameManager.instance;
 
         jugador = instancia.jugador;
 

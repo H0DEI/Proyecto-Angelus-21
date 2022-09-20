@@ -23,7 +23,7 @@ public class InteractuarTextoListaHabilidad : MonoBehaviour, IBoton
     {
         puedePresionarse = true;
 
-        instancia = GameManager.instancia;
+        instancia = GameManager.instance;
 
         RecogeComponenteTexto();
 

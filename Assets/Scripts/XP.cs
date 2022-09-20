@@ -40,7 +40,7 @@ public class XP : MonoBehaviour
 
     private void Awake()
     {
-        instancia = GameManager.instancia;
+        instancia = GameManager.instance;
 
         instancia.XP = this;
 

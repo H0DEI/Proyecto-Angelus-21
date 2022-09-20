@@ -9,13 +9,13 @@ public class CargaInterfazHabilidades : MonoBehaviour
 
     private void Start()
     {
-        GameManager.instancia.cargaInterfazHabilidades = this;
+        GameManager.instance.cargaInterfazHabilidades = this;
 
         habilidades = GetComponentsInChildren<TextMeshProUGUI>();
 
-        for (int i = 0; i < GameManager.instancia.jugador.habilidades.Count; i++)
+        for (int i = 0; i < GameManager.instance.jugador.habilidades.Count; i++)
         {
-            habilidades[i].text = GameManager.instancia.jugador.habilidades[i].nombre;
+            habilidades[i].text = GameManager.instance.jugador.habilidades[i].nombre;
         }
     }
 }

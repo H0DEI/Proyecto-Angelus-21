@@ -9,7 +9,7 @@ public class DialogueSystem : MonoBehaviour
 
     public static DialogueSystem dsInstance;
 
-    private GameManagerAbril instance;
+    private GameManager instance;
 
     private Animator animator;
 
@@ -57,7 +57,10 @@ public class DialogueSystem : MonoBehaviour
 
     public void InitGraph(DialogueGraph graph)
     {
-        dialogueBox.alpha = 1f;
+        GameManager.instance.DesactivaBotonesInterfaz();
+
+        GameManager.instance.dialogue.SetActive(true);
+
         currentGraph = graph;
         currentGraph.Start();
         playing = true;
@@ -65,13 +68,16 @@ public class DialogueSystem : MonoBehaviour
 
     public void Stop()
     {
-        dialogueBox.alpha = 0f;
+        GameManager.instance.dialogue.SetActive(false);
+
         playing = false;
+
+        GameManager.instance.ActivaBotonesInterfaz();
     }
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && playing && !pickingOption)
+        if (Input.GetKeyDown(KeyCode.Space) && playing && !pickingOption)
         {
             if (displayOptions)
             {
@@ -87,7 +93,7 @@ public class DialogueSystem : MonoBehaviour
         {
             bool up = Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
             bool down = Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow);
-            bool enter = Input.GetKeyDown(KeyCode.Return); 
+            bool space = Input.GetKeyDown(KeyCode.Space); 
 
             if (up)
             {
@@ -97,7 +103,7 @@ public class DialogueSystem : MonoBehaviour
             {
                 UpdateSelection(currentSelection + 1);
             }
-            if (enter)
+            if (space)
             {
                 Debug.Log("Entering");
                 PickOption(); 
@@ -138,14 +144,14 @@ public class DialogueSystem : MonoBehaviour
         {
             if (i <= maxSelection)
             {
-                choices[i].color = Color.black;
+                choices[i].color = Color.white;
             }
             else
             {
                 choices[i].color = Color.clear; 
             }
         }
-        choices[currentSelection].color = Color.white;
+        choices[currentSelection].color = Color.yellow;
     }
 
     public void PickOption()
@@ -167,7 +173,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void ExecuteAnimation()
     {
-        if (instance == null) instance = GameManagerAbril.instance;
+        if (instance == null) instance = GameManager.instance;
 
         instance.background.GetComponent<BackgroundChange>().SpriteChange();
 

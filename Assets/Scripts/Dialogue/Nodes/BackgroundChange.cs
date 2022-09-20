@@ -15,7 +15,7 @@ public class BackgroundChange : MonoBehaviour
 
     private Image background;
 
-    private GameManagerAbril instance;
+    private GameManager instance;
 
     private Transform character;
 
@@ -39,17 +39,27 @@ public class BackgroundChange : MonoBehaviour
 
     public void SpriteChange()
     {
-        if (instance == null) instance = GameManagerAbril.instance;
+        if (instance == null) instance = GameManager.instance;
 
         foreach (CharacterColor characterColor in characterColors)
         {
-            character = instance.characters.transform.Find(characterColor.name);
-
-            if (character != null)
+            if (characterColor.name == "H27")
             {
-                if (GameManagerAbril.instance.name.GetComponent<TextMeshProUGUI>().text == characterColor.name) {
-                GameObject go = GameManagerAbril.instance.Icon;
-                go.GetComponent<Image>().sprite = characterColor.sprite;
+                if (GameManager.instance.name.GetComponent<TextMeshProUGUI>().text == characterColor.name)
+                {
+                    GameObject go = GameManager.instance.Icon;
+                    go.GetComponent<Image>().sprite = characterColor.sprite;
+                }
+            }
+            else { 
+                character = instance.characters.transform.Find(characterColor.name);
+
+                if (character != null)
+                {
+                    if (GameManager.instance.name.GetComponent<TextMeshProUGUI>().text == characterColor.name) {
+                    GameObject go = GameManager.instance.Icon;
+                    go.GetComponent<Image>().sprite = characterColor.sprite;
+                    }
                 }
             }
         }

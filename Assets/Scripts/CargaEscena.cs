@@ -11,11 +11,13 @@ public class CargaEscena : MonoBehaviour
 
     public GameObject enemigos;
 
+    public DialogueGraph dialogueGraph;
+
     private GameManager instancia;
 
     private void Awake()
     {
-        instancia = GameManager.instancia;
+        instancia = GameManager.instance;
 
         instancia.cargaEscena = this;
 
@@ -63,6 +65,16 @@ public class CargaEscena : MonoBehaviour
         else
         {
             instancia.EscenaCompletada();
+        }
+
+        CargaDialogo();
+    }
+
+    private void CargaDialogo()
+    {
+        if (dialogueGraph != null)
+        {
+            instancia.dialogueSystem.InitGraph(dialogueGraph);
         }
     }
 }

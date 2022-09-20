@@ -29,7 +29,7 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
 
         puedePresionarse = true;
 
-        instancia = GameManager.instancia;
+        instancia = GameManager.instance;
 
         jugador = instancia.jugador;
 
@@ -97,6 +97,8 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
     {
         if (puedePresionarse && habilidad.coste <= jugador.accionesActuales)
         {
+            habilidad.personaje = jugador;
+
             instancia.habilidadSeleccionada = true;
 
             ObjetivosSeleccionables();
@@ -194,6 +196,6 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
 
         instancia.ResetearObjetivosSeleccionables();
 
-        GameManager.instancia.informacionInterfaz.ActualizaPuntos();
+        GameManager.instance.informacionInterfaz.ActualizaPuntos();
     }
 }
