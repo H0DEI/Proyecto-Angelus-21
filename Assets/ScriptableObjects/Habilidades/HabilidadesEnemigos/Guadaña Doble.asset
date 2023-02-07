@@ -10,20 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
-  m_Name: PrimerosAuxilios
+  m_Name: "Guada\xF1a Doble"
   m_EditorClassIdentifier: 
-  nombre: Primeros Auxilios
-  descripcion: 'PV + (HE + 1d6)
+  nombre: 
+  descripcion: 'Melee  A 2   FP -2  D 3
 
 
-    Restaura cierta cantidad de salud a un objetivo.'
+    Ataca rapidamente con ambos Talos a
+    2 objetivos cortando blindaje ligero y carne por igual.'
   coste: 1
-  velocidad: 3
+  velocidad: 8
   fuerza: 0
-  penetracion: 0
-  "da\xF1o": 0
-  acciones: 08000000
+  penetracion: 2
+  "da\xF1o": 3
+  acciones: 02000000
   personaje: {fileID: 0}
   objetivos: []
-  tipoSeleccion: 1
-  cantidad: 1
+  tipoSeleccion: 2
+  cantidad: 2
+  usosLimitados: 0
+  melee: 0
+  numeroDeUsos: 727
+  tier: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: Tentempie
   m_EditorClassIdentifier: 
-  nombre: "Tentempi\xE9"
+  nombre: 
   descripcion: "Melee  A 3  F +10  FP -5  D 5\nCada herida inflinge 10% de la vida
     actual del objetivo como da\xF1o extra.\n\nExplota el cuello y vertebras del
     objetivo con la fuerza de la mandibula desgarrando todas las arterias y carne
@@ -28,4 +28,6 @@ MonoBehaviour:
   tipoSeleccion: 1
   cantidad: 1
   usosLimitados: 0
+  melee: 0
   numeroDeUsos: 727
+  tier: 0

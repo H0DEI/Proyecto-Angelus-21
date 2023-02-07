@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using cakeslice;
 using TMPro;
 using System.Threading;
+using System.Linq;
 
 public class InteractuarBotonListo : MonoBehaviour, IBoton
 {
@@ -15,6 +16,8 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
     private Color colorDefault;
 
     private GameManager instancia;
+
+    private List<Personaje> muertos = new List<Personaje>();
 
     private void Start()
     {
@@ -54,32 +57,30 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
     {
         foreach (KeyValuePair<Habilidad, bool> habilidad in instancia.habilidadesALanzar.listaHabilidadesALanzar)
         {
-            yield return new WaitForSeconds(0.3f);
+            //usar audio . duration para duracion de wait
+            yield return new WaitForSeconds(habilidad.Key.sonido != null ? habilidad.Key.sonido.length -0.1f : 0.3f);
 
-            habilidad.Key.Usar();
+            if(!muertos.Contains(habilidad.Key.personaje)) habilidad.Key.Usar();          
 
             for (int i = 0; i < instancia.listaObjetosPersonajesEscena.Count; i++)
             {
                 GameObject personajeEnEscena = instancia.listaObjetosPersonajesEscena[i];
-            }
-        }
 
-        for (int i = 0; i < instancia.listaObjetosPersonajesEscena.Count; i++)
-        {
-            GameObject personajeEnEscena = instancia.listaObjetosPersonajesEscena[i];
-
-            if (personajeEnEscena.GetComponent<InteractuarPersonajes>().personaje.heridasActuales <= 0)
-            {
-                if(personajeEnEscena.GetComponent<InteractuarPersonajes>().personaje == instancia.jugador)
+                if (personajeEnEscena.GetComponent<InteractuarPersonajes>().personaje.heridasActuales <= 0)
                 {
-                    instancia.btnHasMuerto.SetActive(true);
+                    muertos.Add(personajeEnEscena.GetComponent<InteractuarPersonajes>().personaje);
+
+                    if (personajeEnEscena.GetComponent<InteractuarPersonajes>().personaje == instancia.jugador)
+                    {
+                        instancia.btnHasMuerto.SetActive(true);
+                    }
+
+                    personajeEnEscena.GetComponent<Animator>().SetTrigger("Muerto");
+
+                    personajeEnEscena.SetActive(false);
+
+                    instancia.listaObjetosPersonajesEscena.Remove(personajeEnEscena);
                 }
-
-                personajeEnEscena.GetComponent<Animator>().SetTrigger("Muerto");
-
-                personajeEnEscena.SetActive(false);
-
-                instancia.listaObjetosPersonajesEscena.Remove(personajeEnEscena);
             }
         }
 
@@ -92,6 +93,8 @@ public class InteractuarBotonListo : MonoBehaviour, IBoton
             
             instancia.XP.ComprovarNivel();
         }
+
+        muertos.Clear();
 
         instancia.habilidadesALanzar.listaHabilidadesALanzar.Clear();
 

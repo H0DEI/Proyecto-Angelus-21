@@ -20,7 +20,7 @@ public class DialogueSystem : MonoBehaviour
         if (dsInstance == null)
         {
             dsInstance = this;
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
             return;
         }
         Destroy(this.gameObject);

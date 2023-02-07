@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: Raid
   m_EditorClassIdentifier: 
-  nombre: Raid
+  nombre: 
   descripcion: Una cucaracha ha entrado en la cocina del chef maestro, nada que una
     buena rociada de Raid no pueda eliminar.
   coste: 1
@@ -25,3 +25,7 @@ MonoBehaviour:
   objetivos: []
   tipoSeleccion: 0
   cantidad: 1
+  usosLimitados: 0
+  melee: 0
+  numeroDeUsos: 727
+  tier: 0

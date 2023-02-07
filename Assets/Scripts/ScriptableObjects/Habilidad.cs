@@ -37,8 +37,12 @@ public class Habilidad : ScriptableObject, IComparable
 
     public TierHabilidad tier;
 
+    public AudioClip sonido;
+
     public void Usar()
     {
+        if(sonido != null) GameManager.instance.soundEffect.PlayOneShot(sonido);
+
         foreach (Accion accion in acciones) 
         {
             switch (accion) 
@@ -222,7 +226,7 @@ public class Habilidad : ScriptableObject, IComparable
                 {
                     objetivo.heridasActuales -= daño;
 
-                    AnimaWounded(objetivo, daño.ToString());
+                    AnimaValue(objetivo, "Wounded", daño.ToString());
                 }
                 else
                 {
@@ -301,13 +305,17 @@ public class Habilidad : ScriptableObject, IComparable
 
     private void Curar(Personaje objetivo)
     {
+        int heal;
+
         if (objetivo.heridasActuales > 0 && objetivo.heridasActuales < objetivo.heridasMaximas)
         {
-            objetivo.heridasActuales +=  Roll(personaje.habilidadEspecial);
+            heal = Roll(personaje.habilidadEspecial);
+
+            objetivo.heridasActuales += heal;
 
             if (objetivo.heridasActuales > objetivo.heridasMaximas) objetivo.heridasActuales = objetivo.heridasMaximas;
 
-            Anima(objetivo, "Curar");
+            AnimaValue(objetivo, "Curar", heal.ToString());
         }
     }
 
@@ -316,10 +324,10 @@ public class Habilidad : ScriptableObject, IComparable
         objetivo.gameObject.GetComponent<Animator>().SetTrigger(animacion);
     }
 
-    private void AnimaWounded(Personaje objetivo, String text)
+    private void AnimaValue(Personaje objetivo, String text, String value)
     {
-        objetivo.gameObject.transform.Find("Canvas").transform.Find("wounded").GetComponent<TextMeshProUGUI>().text = text;
+        objetivo.gameObject.transform.Find("Canvas").transform.Find("wounded").GetComponent<TextMeshProUGUI>().text = value;
 
-        objetivo.gameObject.GetComponent<Animator>().SetTrigger("Wounded");
+        objetivo.gameObject.GetComponent<Animator>().SetTrigger(text);
     }
 }

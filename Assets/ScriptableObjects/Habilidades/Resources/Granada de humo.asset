@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: Granada de humo
   m_EditorClassIdentifier: 
-  nombre: Granada de humo
+  nombre: 
   descripcion: 'Agilidad {0}
 
     Solo 1 uso.'
@@ -27,5 +27,6 @@ MonoBehaviour:
   tipoSeleccion: 5
   cantidad: 1
   usosLimitados: 1
+  melee: 0
   numeroDeUsos: 1
   tier: 0

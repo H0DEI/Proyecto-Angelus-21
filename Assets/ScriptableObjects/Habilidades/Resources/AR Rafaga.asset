@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AR Rafaga
   m_EditorClassIdentifier: 
   nombre: AR Rafaga
-  descripcion: Range  A 3  F{0}  FP{1}  D{2}
+  descripcion: 
   coste: 1
   velocidad: 5
   fuerza: 5
@@ -25,5 +25,7 @@ MonoBehaviour:
   tipoSeleccion: 1
   cantidad: 1
   usosLimitados: 0
+  melee: 0
   numeroDeUsos: 727
   tier: 0
+  sonido: {fileID: 8300000, guid: ae10e93c63f5a204a8984b78a26fcbb3, type: 3}

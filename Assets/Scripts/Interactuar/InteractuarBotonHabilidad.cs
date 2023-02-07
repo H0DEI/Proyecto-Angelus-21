@@ -180,6 +180,8 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
 
     private void FinalizaSeleccion()
     {
+        Habilidad habilidadInstanciada;
+
         instancia.habilidadSeleccionada = false;
 
         instancia.mostrarIndicador = false;
@@ -188,9 +190,11 @@ public class InteractuarBotonHabilidad : MonoBehaviour, IBoton
 
         habilidad.personaje = jugador;
 
-        habilidad.velocidad += habilidad.personaje.agilidad;
+        habilidadInstanciada = Instantiate(habilidad);
+
+        habilidadInstanciada.velocidad += habilidad.personaje.agilidad;
         
-        instancia.habilidadesALanzar.listaHabilidadesALanzar.Add(new KeyValuePair<Habilidad, bool>(Instantiate(habilidad), true));
+        instancia.habilidadesALanzar.listaHabilidadesALanzar.Add(new KeyValuePair<Habilidad, bool>(habilidadInstanciada, true));
         
         instancia.ActivaBotonesInterfaz();
 

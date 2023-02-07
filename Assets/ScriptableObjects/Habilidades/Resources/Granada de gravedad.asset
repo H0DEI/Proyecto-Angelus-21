@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: Granada de gravedad
   m_EditorClassIdentifier: 
-  nombre: Granada de gravedad
+  nombre: 
   descripcion: "Range  A 1  F 5  FP -2  D 0\nCada proyectil realiza un da\xF1o equivalente
     al 15% de la vida actual del afectado.\n\nReduce la resistencia de los enemigos
     en 1 unidad."
@@ -27,5 +27,6 @@ MonoBehaviour:
   tipoSeleccion: 3
   cantidad: 1
   usosLimitados: 1
+  melee: 0
   numeroDeUsos: 1
   tier: 2

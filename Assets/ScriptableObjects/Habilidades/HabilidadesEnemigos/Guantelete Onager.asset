@@ -10,21 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
-  m_Name: GranadaFragmentacion
+  m_Name: Guantelete Onager
   m_EditorClassIdentifier: 
-  nombre: Granada Fragmentacion
-  descripcion: 'Range  A 1d6  F 6  FP -2  D 2
+  nombre: 
+  descripcion: 'Melee  A 1  F +8  FP -3  D 5
 
 
-    Lanza una granada de fragmentacion
-    que infinge gran cantidad de impactos.'
-  coste: 2
-  velocidad: 4
-  fuerza: 6
-  penetracion: 2
-  "da\xF1o": 2
-  acciones: 0c000000
+    Golpea brutalmente al objetivo
+    con el Guantelete Onager de la servoarmadura.'
+  coste: 1
+  velocidad: 6
+  fuerza: 8
+  penetracion: 3
+  "da\xF1o": 5
+  acciones: 01000000
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 0
   cantidad: 1
+  usosLimitados: 0
+  melee: 0
+  numeroDeUsos: 727
+  tier: 0

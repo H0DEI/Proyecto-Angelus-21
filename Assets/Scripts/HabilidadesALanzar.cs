@@ -58,5 +58,7 @@ public class HabilidadesALanzar : MonoBehaviour
         
             listaHabilidadesALanzar.ShuffleRange(startIndex, repetitionCount);
         }
+
+        listaHabilidadesALanzar = listaHabilidadesALanzar.OrderByDescending(o => o.Key.velocidad).ToList();
     }
 }

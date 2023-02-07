@@ -10,23 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
-  m_Name: "Guada\xF1aDoble"
+  m_Name: Cuchillo Tactico
   m_EditorClassIdentifier: 
-  nombre: "Guada\xF1a doble"
-  descripcion: 'Melee  A 2   FP -2  D 3
+  nombre: 
+  descripcion: 'Melee  A 5  F +1  FP -1  D 1
 
 
-    Ataca rapidamente con ambos Talos a
-    2 objetivos cortando blindaje ligero y carne por igual.'
+    Acuchilla 5 veces al objetivo.'
   coste: 1
-  velocidad: 8
-  fuerza: 0
-  penetracion: 2
-  "da\xF1o": 3
-  acciones: 02000000
+  velocidad: 6
+  fuerza: 1
+  penetracion: 1
+  "da\xF1o": 1
+  acciones: 0100000001000000010000000100000001000000
   personaje: {fileID: 0}
   objetivos: []
-  tipoSeleccion: 2
-  cantidad: 2
+  tipoSeleccion: 0
+  cantidad: 1
   usosLimitados: 0
+  melee: 0
   numeroDeUsos: 727
+  tier: 0

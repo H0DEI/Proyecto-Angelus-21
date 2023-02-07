@@ -18,8 +18,10 @@ public class EnumScriptEditor : Editor
     private SerializedProperty propiedadTipoSeleccion;
     private SerializedProperty propiedadCantidad;
     private SerializedProperty propiedadUsosLimitados;
+    private SerializedProperty propiedadMelee;
     private SerializedProperty propiedadNumeroDeUsos;
     private SerializedProperty propiedadTier;
+    private SerializedProperty propiedadSonido;
 
     private void OnEnable()
     {
@@ -35,8 +37,10 @@ public class EnumScriptEditor : Editor
         propiedadTipoSeleccion = serializedObject.FindProperty("tipoSeleccion");
         propiedadCantidad = serializedObject.FindProperty("cantidad");
         propiedadUsosLimitados = serializedObject.FindProperty("usosLimitados");
+        propiedadMelee = serializedObject.FindProperty("melee");
         propiedadNumeroDeUsos = serializedObject.FindProperty("numeroDeUsos");
         propiedadTier = serializedObject.FindProperty("tier");
+        propiedadSonido = serializedObject.FindProperty("sonido");
     }
 
     public override void OnInspectorGUI()
@@ -53,8 +57,11 @@ public class EnumScriptEditor : Editor
         EditorGUILayout.PropertyField(propiedadAcciones);
         EditorGUILayout.PropertyField(propiedadObjetivos);
         EditorGUILayout.PropertyField(propiedadTipoSeleccion);
+        EditorGUILayout.PropertyField(propiedadMelee);
 
         TipoSeleccion tipo = (TipoSeleccion)propiedadTipoSeleccion.enumValueIndex;
+
+        EditorGUILayout.PropertyField(propiedadSonido);
 
         switch (tipo)
         {

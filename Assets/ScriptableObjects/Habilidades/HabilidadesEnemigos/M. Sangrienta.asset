@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
-  m_Name: OrdenPrecision
+  m_Name: M
   m_EditorClassIdentifier: 
-  nombre: 'Orden: Precision'
-  descripcion: 'HP ++ (HE / 2)
+  nombre: 
+  descripcion: 'Range  A 3  F 7  FP -2  D 3
 
-    Todos los aliados.
+    PV - 10% 3 veces
 
 
-    Ordena al escuadron
-    que apunten con sus armas a donde prevee que vaya a estar el enemigo, mejorando
-    la punteria de todos los soldados.'
+    Dispara una
+    salva de proyectiles generados a partir de su sangre y huesos a todos los enemigos
+    y perdiendo parte de su salud restante.'
   coste: 2
-  velocidad: 1
-  fuerza: 0
-  penetracion: 0
-  "da\xF1o": 0
-  acciones: 0d000000
+  velocidad: 4
+  fuerza: 7
+  penetracion: 2
+  "da\xF1o": 3
+  acciones: 030000000300000003000000
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 3

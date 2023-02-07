@@ -10,22 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
-  m_Name: MunicionVirulenta
+  m_Name: Punta Blanda
   m_EditorClassIdentifier: 
-  nombre: Municion Virulenta
-  descripcion: "Range  A 2  F 5  FP -2  D 0\nCada proyectil realiza un da\xF1o equivalente
-    al 15% de la vida actual del afectado.\n\nDispara dos proyectiles de baba llena
-    de infecciones e insectos que corroen la carne y destruyen los organos internos
-    de un objetivo."
+  nombre: 
+  descripcion: Range  A 7  F 4  FP -1  D 1
   coste: 1
-  velocidad: 7
-  fuerza: 5
-  penetracion: 2
-  "da\xF1o": 0
-  acciones: 0400000004000000
+  velocidad: 4
+  fuerza: 4
+  penetracion: 1
+  "da\xF1o": 1
+  acciones: 00000000000000000000000000000000000000000000000000000000
   personaje: {fileID: 0}
   objetivos: []
-  tipoSeleccion: 1
+  tipoSeleccion: 0
   cantidad: 1
   usosLimitados: 0
+  melee: 0
   numeroDeUsos: 727
+  tier: 0

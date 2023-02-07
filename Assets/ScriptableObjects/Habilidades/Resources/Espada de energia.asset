@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: Espada de energia
   m_EditorClassIdentifier: 
-  nombre: Espada de energia
+  nombre: 
   descripcion: Melee  A 1  F {0}+HE  FP {1}  D {2}
   coste: 1
   velocidad: 9
@@ -25,5 +25,6 @@ MonoBehaviour:
   tipoSeleccion: 1
   cantidad: 1
   usosLimitados: 0
+  melee: 0
   numeroDeUsos: 727
   tier: 0

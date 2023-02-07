@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject background;
 
+    public AudioSource soundEffect;
+
     //public GameObject indicadorRaton;
 
     private Transform interfaz;
@@ -416,6 +418,8 @@ public class GameManager : MonoBehaviour
             {
                 do {
                     habilidad = lHabilidades[Random.Range(0, enemigo.habilidades.Count())];
+
+                    habilidad.nombre = habilidad.name;
 
                     habilidad.velocidad += enemigo.agilidad;
 

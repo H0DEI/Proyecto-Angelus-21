@@ -50,6 +50,8 @@ public class XP : MonoBehaviour
 
         foreach(Habilidad habilidad in TodasHabilidades)
         {
+            habilidad.nombre = habilidad.name;
+
             switch (habilidad.tier)
             {
                 case TierHabilidad.TierB:

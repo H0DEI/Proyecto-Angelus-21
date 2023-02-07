@@ -10,17 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
-  m_Name: BateriaDeMisilesIcaro
+  m_Name: CP
   m_EditorClassIdentifier: 
-  nombre: Icaro
-  descripcion: Range  A 2d6  F 7  FP -2  D 1d3
+  nombre: 
+  descripcion: "Range  A 2  F 8  FP -3  D 1d6+2\n\nEl ca\xF1on pesado modelo mortar
+    fue especialmente dise\xF1ado para derribar vehiculos ligeros con facilidad,
+    debido a su enorme peso solo es posible utilizarlos en servoarmaduras."
   coste: 2
-  velocidad: 7
-  fuerza: 7
-  penetracion: 2
-  "da\xF1o": 0
-  acciones: 0d0000000d000000
+  velocidad: 3
+  fuerza: 8
+  penetracion: 3
+  "da\xF1o": 2
+  acciones: 0a0000000a000000
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 0
   cantidad: 1
+  usosLimitados: 0
+  melee: 0
+  numeroDeUsos: 727
+  tier: 0

@@ -21,17 +21,35 @@ public class InformacionDescripciones : MonoBehaviour
 
     public void MuestraInformacionHabilidad(Habilidad habilidad)
     {
-        if (habilidad.penetracion == 0) penetracion = habilidad.penetracion.ToString();
-        else penetracion = " -" + habilidad.penetracion.ToString();
-
-        if(!(habilidad.descripcion.IndexOf(" ") < 0))
+        if (habilidad.descripcion == "")
         {
-            if (habilidad.descripcion.Substring(0, habilidad.descripcion.IndexOf(" ")) == "Range") fuerza = habilidad.fuerza.ToString();
-            else fuerza = " +" + habilidad.fuerza.ToString();
-        }
+            if (habilidad.melee) habilidad.descripcion = "Melee";
+            else habilidad.descripcion = "Range";
+
+            habilidad.descripcion += " A " + habilidad.acciones.Count;
+
+            if (habilidad.melee) habilidad.descripcion += " F +" + habilidad.fuerza;
+            else habilidad.descripcion += " F " + habilidad.fuerza;
+
+            if (habilidad.penetracion == 0) habilidad.descripcion += " FP 0";
+            else habilidad.descripcion += " FP -" + habilidad.penetracion;
+
+            habilidad.descripcion += " D " + habilidad.daño;
+        } 
+        else
+        {
+            if (habilidad.penetracion == 0) penetracion = habilidad.penetracion.ToString();
+            else penetracion = " -" + habilidad.penetracion.ToString();
+
+            if (!(habilidad.descripcion.IndexOf(" ") < 0))
+            {
+                if (habilidad.descripcion.Substring(0, habilidad.descripcion.IndexOf(" ")) == "Range") fuerza = habilidad.fuerza.ToString();
+                else fuerza = " +" + habilidad.fuerza.ToString();
+            }
+        }        
         
         muestraNombre.text = habilidad.nombre;
-        muestraDescripcion.text = string.Format(habilidad.descripcion, fuerza, penetracion, " "+habilidad.daño);
+        muestraDescripcion.text = string.Format(habilidad.descripcion, fuerza, penetracion, " " + habilidad.daño);
         muestraTextoVelocidad.text = "V:";
         muestraValorVelocidad.text = habilidad.velocidad.ToString();
         if (muestraTextoTier != null) muestraTextoTier.text = habilidad.tier.ToString();

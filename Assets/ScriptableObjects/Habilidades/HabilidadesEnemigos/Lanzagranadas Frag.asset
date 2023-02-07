@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6528501c6d3ae243a19c77ab75242d2, type: 3}
   m_Name: Lanzagranadas Frag
   m_EditorClassIdentifier: 
-  nombre: Lanzagranadas
+  nombre: 
   descripcion: "Range  A 1  F 6  FP -3  D 1d6+3\n\nLanza una granada perforante que
     infinge graves da\xF1os.\nEl da\xF1o de la misma variara dependiendo lo cerca
     que haya explotado del objetivo."
@@ -27,5 +27,6 @@ MonoBehaviour:
   tipoSeleccion: 5
   cantidad: 1
   usosLimitados: 0
+  melee: 0
   numeroDeUsos: 727
   tier: 0
