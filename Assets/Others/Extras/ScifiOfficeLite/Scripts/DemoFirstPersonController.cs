@@ -56,19 +56,19 @@ namespace ScifiOfficeLite {
             Vector3 displacement = playerBody.transform.forward * Input.GetAxis("Vertical") + playerBody.transform.right * Input.GetAxis("Horizontal");
             float len = displacement.magnitude;
             if(len > 0) {
-                rb.velocity += displacement / len * Time.deltaTime * maxAcc;
+                rb.linearVelocity += displacement / len * Time.deltaTime * maxAcc;
 
                 // Clamp velocity to the maximum speed.
-                if(rb.velocity.magnitude > maxSpeed) {
-                    rb.velocity = rb.velocity.normalized * speed;
+                if(rb.linearVelocity.magnitude > maxSpeed) {
+                    rb.linearVelocity = rb.linearVelocity.normalized * speed;
                 }
             } else {
                 // If no buttons are pressed, decelerate.
-                len = rb.velocity.magnitude;
+                len = rb.linearVelocity.magnitude;
                 float decelRate = accelerationRate * decelerationFactor * Time.deltaTime;
-                if(len < decelRate) rb.velocity = Vector3.zero;
+                if(len < decelRate) rb.linearVelocity = Vector3.zero;
                 else {
-                    rb.velocity -= rb.velocity.normalized * decelRate;
+                    rb.linearVelocity -= rb.linearVelocity.normalized * decelRate;
                 }
             }
         }
