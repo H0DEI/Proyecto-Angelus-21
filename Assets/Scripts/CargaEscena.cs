@@ -15,11 +15,19 @@ public class CargaEscena : MonoBehaviour
 
     private GameManager instancia;
 
+    private AnimationManager animator;
+
     private void Awake()
     {
         instancia = GameManager.instance;
 
+        animator = instancia.animationManager;
+
         instancia.cargaEscena = this;
+
+        animator.ClearCharacters();
+
+        animator.RegisterCharacter(instancia.objetoJugador.GetInstanceID().ToString(), instancia.objetoJugador.AddComponent<CharacterAnimator>().GetComponent<CharacterAnimator>());
 
         instancia.Mapa.transform.Find("Sala" + SceneManager.GetActiveScene().name.Substring(3)).Find("Fog").transform.gameObject.SetActive(false);
         
@@ -50,6 +58,8 @@ public class CargaEscena : MonoBehaviour
             for (int i=0; i<enemigos.transform.childCount; i++)
             {
                 instancia.listaObjetosPersonajesEscena.Add(enemigos.transform.GetChild(i).gameObject);
+
+                animator.RegisterCharacter(enemigos.transform.GetChild(i).gameObject.GetInstanceID().ToString(), enemigos.transform.GetChild(i).gameObject.AddComponent<CharacterAnimator>().GetComponent<CharacterAnimator>());
             }
 
             instancia.informacionInterfaz.ActualizaPuntos();

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Random = UnityEngine.Random;
+using SHG.AnimatorCoder;
 
 [CreateAssetMenu(fileName = "Nueva Habilidad")]
 public class Habilidad : ScriptableObject, IComparable
@@ -39,6 +40,11 @@ public class Habilidad : ScriptableObject, IComparable
 
     public AudioClip sonido;
 
+    private void Play(string id, AnimationData animationData, int layer = 0)
+    {
+        GameManager.instance.animationManager.PlayAnimation(id, animationData, layer);
+    }
+
     public void Usar()
     {
         if(sonido != null) GameManager.instance.soundEffect.PlayOneShot(sonido);
@@ -52,6 +58,8 @@ public class Habilidad : ScriptableObject, IComparable
                     foreach (Personaje objetivo in objetivos)
                     {
                         RealizaTiradas(personaje.punteria, fuerza, objetivo, daño);
+
+                        Play(personaje.gameObject.GetInstanceID().ToString(), new(Animations.SHOOT1, true, new(), 0.2f));
                     }
 
                     break;

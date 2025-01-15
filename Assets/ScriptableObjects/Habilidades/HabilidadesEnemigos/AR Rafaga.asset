@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: AR Rafaga
   m_EditorClassIdentifier: 
   nombre: AR Rafaga
-  descripcion: 'Range  A 7  F 3  D 1
+  descripcion: 'Range  A 3  F 3  D 1
 
 
-    Dispara 7 veces a un enemigo.'
+    Dispara 3 veces a un enemigo.'
   coste: 1
   velocidad: 10
   fuerza: 3
   penetracion: 0
   "da\xF1o": 1
-  acciones: 00000000000000000000000000000000000000000000000000000000
+  acciones: 000000000000000000000000
   personaje: {fileID: 0}
   objetivos: []
   tipoSeleccion: 0

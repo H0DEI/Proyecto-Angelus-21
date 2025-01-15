@@ -1,0 +1,35 @@
+using UnityEngine;
+using SHG.AnimatorCoder;
+
+public class CharacterAnimator : AnimatorCoder
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        Initialize();
+        Debug.Log(gameObject.GetInstanceID());
+    }
+
+    void Update()
+    {
+        //CheckAttack();
+        //DefaultAnimation(0);
+        //
+        //SetBool(Parameters.TESTPARAM, !Input.GetKey(KeyCode.LeftShift));
+        //
+        //void CheckAttack()
+        //{
+        //    if (GetBool(Parameters.TESTPARAM) && Input.GetKeyUp(KeyCode.Q)) Play(new(Animations.SHOOT1, true, new()));
+        //}
+    }
+
+    public void PlayAnim(AnimationData animationData, int layer = 0)
+    {
+        Play(animationData, layer);
+    }
+
+    public override void DefaultAnimation(int layer)
+    {
+        Play(new(Animations.IDLE1));
+    }
+}

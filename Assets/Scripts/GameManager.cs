@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    public AnimationManager animationManager;
+
     public CargaEscena cargaEscena;
 
     public InformacionDescripciones informacionDescripciones;

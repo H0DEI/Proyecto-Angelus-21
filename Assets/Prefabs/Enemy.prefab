@@ -34,7 +34,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 418816576738309748}
-  - {fileID: 1568924871854256796}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -287,6 +286,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 750829422019532950, guid: d33200f8bd03bce4a8ccfde8b684c6e0, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 750829422019532954, guid: d33200f8bd03bce4a8ccfde8b684c6e0, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -316,66 +319,4 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 750829422019532949, guid: d33200f8bd03bce4a8ccfde8b684c6e0, type: 3}
   m_PrefabInstance: {fileID: 1127188623472127713}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1319354196320359799
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2690888961537572868}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: ad3536b58c1195c4ba0f10786a5c85da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ad3536b58c1195c4ba0f10786a5c85da, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ad3536b58c1195c4ba0f10786a5c85da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ad3536b58c1195c4ba0f10786a5c85da, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.27437901
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ad3536b58c1195c4ba0f10786a5c85da, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ad3536b58c1195c4ba0f10786a5c85da, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.96162164
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ad3536b58c1195c4ba0f10786a5c85da, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ad3536b58c1195c4ba0f10786a5c85da, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ad3536b58c1195c4ba0f10786a5c85da, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -148.15
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ad3536b58c1195c4ba0f10786a5c85da, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: ad3536b58c1195c4ba0f10786a5c85da, type: 3}
-      propertyPath: m_Name
-      value: Rifle Idle (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ad3536b58c1195c4ba0f10786a5c85da, type: 3}
---- !u!4 &1568924871854256796 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ad3536b58c1195c4ba0f10786a5c85da, type: 3}
-  m_PrefabInstance: {fileID: 1319354196320359799}
   m_PrefabAsset: {fileID: 0}

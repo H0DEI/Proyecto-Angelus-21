@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(LookAtWithMargin))]
 public class InteractuarPersonajes : MonoBehaviour
 {
     public bool elegible;
