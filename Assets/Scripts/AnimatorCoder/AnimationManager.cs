@@ -19,7 +19,7 @@ public class AnimationManager : MonoBehaviour
         {
             characters.Add(id, characterAnimator);
             //characterAnimator.Initialize(); // Inicializa el CharacterAnimator
-            Debug.Log($"Personaje registrado: {id}");
+            //Debug.Log($"Personaje registrado: {id}");
         }
         else
         {
@@ -44,6 +44,14 @@ public class AnimationManager : MonoBehaviour
             //{
             //    Debug.LogError($"Personaje con ID {id} no encontrado.");
             //
+        }
+    }
+
+    public void PlayCanvas(string id, AnimationData animationData, int layer = 0)
+    {
+        if (characters.TryGetValue(id, out CharacterAnimator characterAnimator))
+        {
+            characterAnimator.PlayCanv(animationData, layer);
         }
     }
 

@@ -11,7 +11,9 @@ namespace SHG.AnimatorCoder
     {
         /// <summary> The baseline animation logic on a specific layer </summary>
         public abstract void DefaultAnimation(int layer);
+        public abstract void DefaultCanvasAnimation(int layer);
         private Animator animator = null;
+        private Animator canvas = null;
         private Animations[] currentAnimation;
         private bool[] layerLocked;
         private ParameterDisplay[] parameters;
@@ -24,10 +26,14 @@ namespace SHG.AnimatorCoder
 
             Animator[] animators = GetComponentsInChildren<Animator>();
 
-            if (animator == null)
+            if (animator == null && canvas == null)
                 foreach (Animator Animator in animators)
                 {
-                    if (Animator != GetComponent<Animator>())
+                    if (Animator.gameObject.name == "Canvas")
+                    {
+                        canvas = Animator;
+                    } 
+                    else
                     {
                         this.animator = Animator;
                     }
@@ -160,6 +166,47 @@ namespace SHG.AnimatorCoder
                         yield return new WaitForSeconds(delay - data.nextAnimation.crossfade);
                         SetLocked(false, layer);
                         Play(data.nextAnimation, layer);
+                    }
+                }
+
+                return true;
+            }
+            catch
+            {
+                LogError("Please Initialize() in Start()");
+                return false;
+            }
+        }
+
+        public bool PlayCanvas(AnimationData data, int layer = 0)
+        {
+            try
+            {
+                if (data.animation == Animations.RESET)
+                {
+                    DefaultCanvasAnimation(layer);
+                    return false;
+                }
+
+                if (layerLocked[layer] || currentAnimation[layer] == data.animation) return false;
+
+                if (currentCoroutine[layer] != null) StopCoroutine(currentCoroutine[layer]);
+                layerLocked[layer] = data.lockLayer;
+                currentAnimation[layer] = data.animation;
+
+                canvas.CrossFade(AnimatorValues.GetHash(currentAnimation[layer]), data.crossfade, layer);
+
+                if (data.nextAnimation != null)
+                {
+                    currentCoroutine[layer] = StartCoroutine(Wait());
+                    IEnumerator Wait()
+                    {
+                        canvas.Update(0);
+                        float delay = canvas.GetNextAnimatorStateInfo(layer).length;
+                        if (data.crossfade == 0) delay = canvas.GetCurrentAnimatorStateInfo(layer).length;
+                        yield return new WaitForSeconds(delay - data.nextAnimation.crossfade);
+                        SetLocked(false, layer);
+                        PlayCanvas(data.nextAnimation, layer);
                     }
                 }
 

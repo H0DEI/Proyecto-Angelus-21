@@ -45,6 +45,11 @@ public class Habilidad : ScriptableObject, IComparable
         GameManager.instance.animationManager.PlayAnimation(id, animationData, layer);
     }
 
+    private void PlayCanvas(string id, AnimationData animationData, int layer = 0)
+    {
+        GameManager.instance.animationManager.PlayCanvas(id, animationData, layer);
+    }
+
     public void Usar()
     {
         if(sonido != null) GameManager.instance.soundEffect.PlayOneShot(sonido);
@@ -329,13 +334,18 @@ public class Habilidad : ScriptableObject, IComparable
 
     private void Anima(Personaje objetivo, String animacion)
     {
-        objetivo.gameObject.GetComponent<Animator>().SetTrigger(animacion);
+        //objetivo.gameObject.GetComponent<Animator>().SetTrigger(animacion);
+
+        PlayCanvas(objetivo.gameObject.GetInstanceID().ToString(), new(Animations.MISS, true, new(), 0.2f));
     }
 
     private void AnimaValue(Personaje objetivo, String text, String value)
     {
-        objetivo.gameObject.transform.Find("Canvas").transform.Find("wounded").GetComponent<TextMeshProUGUI>().text = value;
+        //objetivo.gameObject.transform.Find("Canvas").transform.Find("wounded").GetComponent<TextMeshProUGUI>().text = value;
+        //!!!!!!!!!!!!!!!!!!!!
 
-        objetivo.gameObject.GetComponent<Animator>().SetTrigger(text);
+
+
+        //objetivo.gameObject.GetComponent<Animator>().SetTrigger(text);
     }
 }

@@ -28,8 +28,18 @@ public class CharacterAnimator : AnimatorCoder
         Play(animationData, layer);
     }
 
+    public void PlayCanv(AnimationData animationData, int layer = 0)
+    {
+        PlayCanvas(animationData, layer);
+    }
+
     public override void DefaultAnimation(int layer)
     {
         Play(new(Animations.IDLE1));
+    }
+
+    public override void DefaultCanvasAnimation(int layer)
+    {
+        PlayCanvas(new(Animations.NOTHING));
     }
 }

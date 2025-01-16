@@ -10,7 +10,11 @@ namespace SHG.AnimatorCoder
         IDLE1,
         SHOOT1,
         DEATH,
-        RESET  //Keep Reset
+        RESET,  //Keep Reset
+
+        //Canvas Animations:
+        MISS,
+        NOTHING
     }
 
     /// <summary> Complete list of all animator parameters </summary>

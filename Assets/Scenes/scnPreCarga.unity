@@ -27709,7 +27709,6 @@ GameObject:
   - component: {fileID: 1303078075125019193}
   - component: {fileID: 1303078075125019192}
   - component: {fileID: 1303078075125019194}
-  - component: {fileID: 1303078075125019195}
   m_Layer: 0
   m_Name: Jugador 1
   m_TagString: Untagged
@@ -27862,28 +27861,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   errorMargin: 0.25
---- !u!95 &1303078075125019195
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303078075125019173}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 53938340f2f2cce488a965dfbc9f709d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!222 &1782027934576825629
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29813,6 +29790,7 @@ GameObject:
   - component: {fileID: 7811690421108043789}
   - component: {fileID: 7811690421108043788}
   - component: {fileID: 7811690421108043791}
+  - component: {fileID: 7811690421108043792}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -29924,6 +29902,28 @@ MonoBehaviour:
   BillboardY: 1
   BillboardZ: 1
   OffsetToCamera: 0
+--- !u!95 &7811690421108043792
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7811690421108043777}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 53938340f2f2cce488a965dfbc9f709d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!222 &7811690421558870002
 CanvasRenderer:
   m_ObjectHideFlags: 0
