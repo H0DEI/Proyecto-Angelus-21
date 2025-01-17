@@ -122,7 +122,7 @@ public class Habilidad : ScriptableObject, IComparable
 
                     personaje.accionesMaximas += 1;
 
-                    Anima(personaje, "Mejora");
+                    //Anima(personaje, "Mejora");
 
                     break;
 
@@ -130,7 +130,7 @@ public class Habilidad : ScriptableObject, IComparable
 
                     personaje.agilidad += fuerza;
 
-                    Anima(personaje, "Mejora");
+                    //Anima(personaje, "Mejora");
 
                     break;
 
@@ -138,7 +138,7 @@ public class Habilidad : ScriptableObject, IComparable
 
                 personaje.resistencia -= 1;
 
-                Anima(personaje, "Desmejora");
+                //Anima(personaje, "Desmejora");
 
                     break;
 
@@ -239,21 +239,21 @@ public class Habilidad : ScriptableObject, IComparable
                 {
                     objetivo.heridasActuales -= daño;
 
-                    AnimaValue(objetivo, "Wounded", daño.ToString());
+                    Anima(objetivo, daño.ToString(), Color.red);
                 }
                 else
                 {
-                    Anima(objetivo, "Saved");
+                    Anima(objetivo, "Saved", Color.yellow);
                 }
             }
             else
             {
-                Anima(objetivo, "Resisted");
+                Anima(objetivo, "Resisted", Color.cyan);
             }
         }
         else
         {
-            Anima(objetivo, "Miss");
+            Anima(objetivo, "Miss", Color.grey);
         }
     }
 
@@ -332,11 +332,13 @@ public class Habilidad : ScriptableObject, IComparable
         }
     }
 
-    private void Anima(Personaje objetivo, String animacion)
+    private void Anima(Personaje objetivo, String animacion, Color color)
     {
+        GameManager.instance.textManager.ShowFloatingText(objetivo.gameObject, animacion, color);
+
         //objetivo.gameObject.GetComponent<Animator>().SetTrigger(animacion);
 
-        PlayCanvas(objetivo.gameObject.GetInstanceID().ToString(), new(Animations.MISS, true, new(), 0.2f));
+        //PlayCanvas(objetivo.gameObject.GetInstanceID().ToString(), new(Animations.MISS, true, new(), 0.2f));
     }
 
     private void AnimaValue(Personaje objetivo, String text, String value)

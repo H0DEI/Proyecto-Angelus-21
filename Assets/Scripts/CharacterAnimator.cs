@@ -7,7 +7,6 @@ public class CharacterAnimator : AnimatorCoder
     void Start()
     {
         Initialize();
-        Debug.Log(gameObject.GetInstanceID());
     }
 
     void Update()

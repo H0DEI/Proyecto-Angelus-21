@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     public AnimationManager animationManager;
 
+    public FloatingTextManager textManager;
+
     public CargaEscena cargaEscena;
 
     public InformacionDescripciones informacionDescripciones;
