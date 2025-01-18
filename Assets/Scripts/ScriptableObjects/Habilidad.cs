@@ -22,6 +22,8 @@ public class Habilidad : ScriptableObject, IComparable
 
     public List<Accion> acciones = new List<Accion>();
 
+    public List<Animations> animaciones = new List<Animations>();
+
     public Personaje personaje;
 
     public List<Personaje> objetivos = new List<Personaje>();
@@ -52,7 +54,12 @@ public class Habilidad : ScriptableObject, IComparable
 
     public void Usar()
     {
-        if(sonido != null) GameManager.instance.soundEffect.PlayOneShot(sonido);
+        foreach (Animations animacion in animaciones)
+        {
+            Play(personaje.gameObject.GetInstanceID().ToString(), new(animacion, false, new(), 0.2f));
+        }
+
+        if (sonido != null) GameManager.instance.soundEffect.PlayOneShot(sonido);
 
         foreach (Accion accion in acciones) 
         {
@@ -63,8 +70,6 @@ public class Habilidad : ScriptableObject, IComparable
                     foreach (Personaje objetivo in objetivos)
                     {
                         RealizaTiradas(personaje.punteria, fuerza, objetivo, daño);
-
-                        Play(personaje.gameObject.GetInstanceID().ToString(), new(Animations.SHOOT1, true, new(), 0.2f));
                     }
 
                     break;

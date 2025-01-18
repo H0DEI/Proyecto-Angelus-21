@@ -14,6 +14,7 @@ public class EnumScriptEditor : Editor
     private SerializedProperty propiedadPenetracion;
     private SerializedProperty propiedadDaño;
     private SerializedProperty propiedadAcciones;
+    private SerializedProperty propiedadAnimaciones;
     private SerializedProperty propiedadObjetivos;
     private SerializedProperty propiedadTipoSeleccion;
     private SerializedProperty propiedadCantidad;
@@ -33,6 +34,7 @@ public class EnumScriptEditor : Editor
         propiedadPenetracion = serializedObject.FindProperty("penetracion");
         propiedadDaño = serializedObject.FindProperty("daño");
         propiedadAcciones = serializedObject.FindProperty("acciones");
+        propiedadAnimaciones = serializedObject.FindProperty("animaciones");
         propiedadObjetivos = serializedObject.FindProperty("objetivos");
         propiedadTipoSeleccion = serializedObject.FindProperty("tipoSeleccion");
         propiedadCantidad = serializedObject.FindProperty("cantidad");
@@ -55,6 +57,7 @@ public class EnumScriptEditor : Editor
         EditorGUILayout.PropertyField(propiedadPenetracion);
         EditorGUILayout.PropertyField(propiedadDaño);
         EditorGUILayout.PropertyField(propiedadAcciones);
+        EditorGUILayout.PropertyField(propiedadAnimaciones);
         EditorGUILayout.PropertyField(propiedadObjetivos);
         EditorGUILayout.PropertyField(propiedadTipoSeleccion);
         EditorGUILayout.PropertyField(propiedadMelee);
