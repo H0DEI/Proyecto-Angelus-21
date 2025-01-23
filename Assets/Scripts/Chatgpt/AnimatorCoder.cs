@@ -168,6 +168,12 @@ namespace SHG.AnimatorCoder
                         Play(data.nextAnimation, layer);
                     }
                 }
+                else
+                {
+                    Debug.Log($"No hay siguiente animación, regresando a DefaultAnimation en layer {layer}");
+                    // Si no hay más animaciones en la cadena, llamar a DefaultAnimation
+                    DefaultAnimation(layer);
+                }
 
                 return true;
             }

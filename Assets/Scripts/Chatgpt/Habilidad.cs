@@ -54,16 +54,52 @@ public class Habilidad : ScriptableObject, IComparable
 
     public void Usar()
     {
-        foreach (Animations animacion in animaciones)
-        {
-            Play(personaje.gameObject.GetInstanceID().ToString(), new(animacion, false, new(), 0.2f));
-        }
+       // foreach (Animations animacion in animaciones)
+       // {
+       //     Play(personaje.gameObject.GetInstanceID().ToString(), new(animacion, true, new(), 0.2f));
+       // }
 
-        if (sonido != null) GameManager.instance.soundEffect.PlayOneShot(sonido);
+        
+            AnimationData previousAnimation = null;
+        
+            // Crear la cadena de animaciones desde la lista `animaciones`.
+            foreach (Animations animacion in animaciones)
+            {
+                var currentAnimation = new AnimationData(animacion, true, new(), 0.2f);
+                if (previousAnimation != null)
+                {
+                    // Encadenar la animación actual con la anterior.
+                    previousAnimation.nextAnimation = currentAnimation;
+                }
+                else
+                {
+                    // Iniciar la primera animación directamente.
+                    Play(personaje.gameObject.GetInstanceID().ToString(), currentAnimation);
+                }
+                previousAnimation = currentAnimation;
+            }
+        
+            // Asegurar que la última animación regrese a la predeterminada.
+            if (previousAnimation != null)
+            {
+                Debug.Log($"Agregando IDLE1 al final de la cadena");
+                previousAnimation.nextAnimation = new AnimationData(Animations.IDLE1, false, null, 0.2f);
+            }
 
-        foreach (Accion accion in acciones) 
-        {
-            switch (accion) 
+            // Reproducir sonido si aplica.
+            if (sonido != null) GameManager.instance.soundEffect.PlayOneShot(sonido);
+
+            // Ejecutar las acciones asociadas a la habilidad.
+            foreach (Accion accion in acciones)
+            {
+                EjecutarAccion(accion);
+            }
+        
+    }
+
+        private void EjecutarAccion(Accion accion)
+    {
+        switch (accion) 
             {
                 case Accion.Disparo:
 
@@ -225,7 +261,7 @@ public class Habilidad : ScriptableObject, IComparable
                     break;
             }
         }
-    }
+    
 
     public int CompareTo(object obj)
     {
